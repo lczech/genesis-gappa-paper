@@ -8,6 +8,7 @@ extern "C" {
 }
 
 #include <stdarg.h>
+#include <chrono>
 
 static void fatal(const char * format, ...) __attribute__ ((noreturn));
 
@@ -51,7 +52,11 @@ pll_utree_t * load_tree_unrooted(const char * filename)
 
 int main(int argc, char * argv[])
 {
+
+  auto start = std::chrono::high_resolution_clock::now();
+
   if (argc != 2)
+
     fatal("syntax: %s [newick]", argv[0]);
 
   pll_utree_t * utree = load_tree_unrooted(argv[1]);
@@ -59,18 +64,18 @@ int main(int argc, char * argv[])
     fatal("Tree must be a rooted or unrooted binary.");
 
   /* select a random inner node */
-  long int r = random() % utree->inner_count;
-  pll_unode_t * root = utree->nodes[utree->tip_count + r];
+  // long int r = random() % utree->inner_count;
+  // pll_unode_t * root = utree->nodes[utree->tip_count + r];
 
   /* export the tree to newick format with the selected inner node as the root
      of the unrooted binary tree */
-  char * newick = pll_utree_export_newick(root,NULL);
-
-  // printf("%s\n", newick);
-
-  free(newick);
+  // char * newick = pll_utree_export_newick(root,NULL);
 
   pll_utree_destroy(utree,NULL);
 
+  // free(newick);
+
+  std::chrono::duration<double> elapsed = std::chrono::high_resolution_clock::now() - start;
+  printf("Internal time: %f\n", elapsed.count());
   return 0;
 }
