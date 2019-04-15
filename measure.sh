@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Some setup
+LC_NUMERIC=C LC_COLLATE=C
+
 # Get script to run, ch to its dir
 cd $(dirname "${1}")
 script=./$(basename "${1}")
