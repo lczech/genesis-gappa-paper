@@ -1,7 +1,8 @@
 #!/bin/bash
 
-# Get script to run
-script=$1
+# Get script to run, ch to its dir
+cd $(dirname "${1}")
+script=./$(basename "${1}")
 
 # Default number of speed runs:
 iterations=3
@@ -91,3 +92,6 @@ run_speed ${script}
 
 echo
 echo "End: `date`"
+
+# Change back to prev dir.
+cd -
