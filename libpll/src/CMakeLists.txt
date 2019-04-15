@@ -9,5 +9,5 @@ add_executable        (testapp_module ${testapp_sources})
 target_link_libraries (testapp_module ${PLLMODULES_LIBRARIES})
 target_link_libraries (testapp_module m)
 
-set_target_properties (testapp_module PROPERTIES OUTPUT_NAME testapp)
+set_target_properties (testapp_module PROPERTIES OUTPUT_NAME read-newick)
 set_target_properties (testapp_module PROPERTIES PREFIX "")

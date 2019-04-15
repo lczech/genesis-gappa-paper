@@ -55,13 +55,15 @@ int main(int argc, char * argv[])
 
   auto start = std::chrono::high_resolution_clock::now();
 
-  if (argc != 2)
-
+  if (argc != 2) {
     fatal("syntax: %s [newick]", argv[0]);
+  }
 
   pll_utree_t * utree = load_tree_unrooted(argv[1]);
-  if (!utree)
+
+  if (!utree) {
     fatal("Tree must be a rooted or unrooted binary.");
+  }
 
   /* select a random inner node */
   // long int r = random() % utree->inner_count;
