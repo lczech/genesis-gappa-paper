@@ -3,12 +3,8 @@
 # Some setup
 LC_NUMERIC=C LC_COLLATE=C
 
-# Get script to run, ch to its dir
-cd $(dirname "${1}")
-script=./$(basename "${1}")
-
 # Default number of speed runs:
-iterations=3
+iterations=10
 
 # This script needs some programs.
 if [ -z "`which bc`" ] ; then
@@ -28,6 +24,12 @@ function run_speed() {
     local min=0 max=0 sum=0 avg mem
     # local s_time e_time
 
+    # Get script to run, ch to its dir
+    cd $(dirname "${1}")
+    script=./$(basename "${1}")
+
+    printf "%-60s" ${1}
+
     # printf ' %.0s' {1..48}
     for i in $(seq 1 ${iterations}); do
         printf "%3u/%-3u" ${i} ${iterations}
@@ -36,14 +38,20 @@ function run_speed() {
         # This is where the actual script is being run.
         # Its output is immediately captured for processing.
         # s_time=`date +%s%N`
-        time_out=`/usr/bin/time -v ${1} 2>&1 >/dev/null`
+        script_out=`/usr/bin/time -v ${script} 2>&1`
         success=$?
         # e_time=`date +%s%N`
 
+        # Break if the test failed. We do not need to repeat it then.
+        if [[ ${success} != 0 ]]; then
+            break
+        fi
+
         # Set timing counters.
         # duration=`echo "scale=3;(${e_time} - ${s_time})/(10^06)" | bc`
-        # duration=`echo ${time_out} | grep "User time (seconds):" | sed "s/.* \([0-9]*\)\$/\1/g"`
-        duration=`echo ${time_out} | sed "s/.*User time .seconds.: \([0-9.]*\).*/\1/g"`
+        # duration=`echo ${script_out} | grep "User time (seconds):" | sed "s/.* \([0-9]*\)\$/\1/g"`
+        # duration=`echo ${script_out} | sed "s/.*User time .seconds.: \([0-9.]*\).*/\1/g"`
+        duration=`echo ${script_out} | sed "s/.*Internal time: \([0-9.]*\).*/\1/g"`
         if [[ ${max} == 0 ]]; then
             min=${duration}
             max=${duration}
@@ -57,11 +65,6 @@ function run_speed() {
         fi
         sum=`echo "${sum} + ${duration}" | bc`
         printf "\b\b\b\b\b\b\b"
-
-        # Break if the test failed. We do not need to repeat it then.
-        if [[ ${success} != 0 ]]; then
-            break
-        fi
     done
     printf ' %.0s'  {1..7}
     printf '\b%.0s' {1..7}
@@ -71,30 +74,39 @@ function run_speed() {
     if [[ ${success} == 0 ]]; then
         avg=`echo "scale=3;${sum}/${iterations}" | bc`
 
-        printf "Min: % 10.3fs\n" ${min}
-        printf "Max: % 10.3fs\n" ${max}
-        printf "Avg: % 10.3fs\n" ${avg}
+        printf "% 10.3fs " ${min}
+        printf "% 10.3fs " ${max}
+        printf "% 10.3fs " ${avg}
 
         # Format memory needs for nice output.
-        mem=`echo ${time_out} | sed "s/.*Maximum resident set size .kbytes.: \([0-9]*\).*/\1/g"`
+        mem=`echo ${script_out} | sed "s/.*Maximum resident set size .kbytes.: \([0-9]*\).*/\1/g"`
         mem=`echo "scale=3;${mem}/1024" | bc`
-        printf "Mem: % 10.3fMb\n" ${mem}
+        printf "% 10.3fMb\n" ${mem}
         # echo "Mem: $(( ${mem_out} / 1024 )) Mb"
     else
         echo "Fail!"
     fi
 
+    # Change back to prev dir.
+    cd - > /dev/null
+
     return ${success}
 }
 
 echo "Start: `date`"
-echo "Command: ${script}"
 echo
+echo "Command                                                          Min         Max         Avg         Mem"
 
-run_speed ${script}
+# Run either all know scripts, or the one provided.
+if [ $# -eq 0 ] ; then
+
+    run_speed genesis/read_newick.sh
+    run_speed libpll/read_tree.sh
+    run_speed ape/newick_reading.R
+    
+else
+    run_speed ${1}
+fi
 
 echo
 echo "End: `date`"
-
-# Change back to prev dir.
-cd -

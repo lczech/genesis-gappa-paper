@@ -1,3 +1,6 @@
 [submodule "libpll/pll-modules"]
 	path = libpll/pll-modules
 	url = https://github.com/ddarriba/pll-modules.git
+[submodule "genesis/genesis"]
+	path = genesis/genesis
+	url = https://github.com/lczech/genesis.git
