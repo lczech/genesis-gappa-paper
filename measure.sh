@@ -99,7 +99,11 @@ echo "Command                                                          Min      
 
 # Run either all know scripts, or the one provided.
 if [ $# -eq 0 ] ; then
+
+    run_speed genesis/read_newick.sh
+    run_speed libpll/read_tree.sh
     run_speed ape/newick_reading.R
+    
 else
     run_speed ${1}
 fi
