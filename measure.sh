@@ -100,30 +100,27 @@ echo "Command                                                          Min      
 # Run either all know scripts, or the one provided.
 if [ $# -eq 0 ] ; then
 
+	run_speed ape/read_newick.R
+    run_speed dendropy/read_newick.py
+    run_speed ete3/read_newick.py
+    run_speed genesis/read_newick.sh
+    run_speed ggtree/read_newick.R
+    run_speed libpll/read_newick.sh
+
     run_speed ape/pairwise_patristic.R
-    run_speed ape/read_newick.R
+    run_speed dendropy/pairwise_patristic.py
+    #run_speed ete3/pairwise_patristic.py
+    run_speed genesis/pairwise_patristic.sh
+    
+    run_speed biopy/read_fasta.py
+    run_speed genesis/read_fasta.sh
     
     run_speed biopy/base_frequencies.py
-    run_speed biopy/read_fasta.py
-    
-    run_speed dendropy/pairwise_patristic.py
-    run_speed dendropy/read_newick.py
-    
-    #run_speed ete3/pairwise_patristic.py
-    run_speed ete3/read_newick.py
-    
     run_speed genesis/base_frequencies.sh
-    run_speed genesis/pairwise_patristic.sh
-    run_speed genesis/read_fasta.sh
+    
     run_speed genesis/read_jplace.sh
-    run_speed genesis/read_newick.sh
-    
-    run_speed ggtree/read_newick.R
     run_speed ggtree/read_jplace.sh
-    
     run_speed guppy/read_jplace.sh
-    
-    run_speed libpll/read_newick.sh
     
 else
     run_speed ${1}
