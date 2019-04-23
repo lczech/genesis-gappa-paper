@@ -14,7 +14,9 @@ start <- Sys.time()
 mat <- cophenetic(tree)
 
 # Stop the clock
-duration <- Sys.time() - start 
+end <- Sys.time()
+print(end) 
+duration <- difftime(end, start, units="secs")
 print(paste("Internal time:", duration))
 
 # Check the output

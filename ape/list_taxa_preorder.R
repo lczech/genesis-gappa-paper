@@ -24,5 +24,7 @@ fileConn<-file("names.txt")
 writeLines( tree$tip.label, fileConn)
 close(fileConn)
 
-duration <- Sys.time() - start 
+end <- Sys.time()
+print(end) 
+duration <- difftime(end, start, units="secs")
 print(paste("Internal time:", duration))
