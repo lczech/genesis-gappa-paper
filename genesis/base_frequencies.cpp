@@ -50,25 +50,28 @@ int main( int argc, char** argv )
     }
 	auto const infile = std::string( argv[1] );
 
+    LOG_INFO << "reading";
+    auto seqs = FastaReader().read( from_file( infile ));
+    LOG_INFO << "Found " << seqs.size() << " sequences.";
+
     LOG_INFO << "Started";
     LOG_TIME << "now";
     clock_t begin = clock();
 
-    // auto it = FastaInputIterator( from_file( infile ));
-    // size_t cnt = 0;
-    // while( it ) {
-    //     ++cnt;
-    //     ++it;
-    // }
-
-    auto seqs = FastaReader().read( from_file( infile ));
+    // auto const bf = base_frequencies( seqs, "ACGU" );
+    auto bf = site_histogram( seqs );
 
     clock_t end = clock();
     LOG_TIME << "then";
-    // LOG_INFO << "Found " << cnt << " sequences.";
 
     double elapsed_secs = double(end - begin) / CLOCKS_PER_SEC;
     LOG_BOLD << "Internal time: " << elapsed_secs << "\n";
+
+    LOG_INFO << "G " << ( bf['g'] + bf['G'] );
+    LOG_INFO << "C " << ( bf['c'] + bf['C'] );
+    LOG_INFO << "A " << ( bf['a'] + bf['A'] );
+    LOG_INFO << "U " << ( bf['u'] + bf['U'] );
+    LOG_INFO << "- " << ( bf['-'] + bf['.'] );
 
     LOG_INFO << "Finished";
     return 0;

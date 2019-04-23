@@ -1,6 +1,6 @@
 /*
     Genesis - A toolkit for working with phylogenetic data.
-    Copyright (C) 2014-2017 Lucas Czech
+    Copyright (C) 2014-2019 Lucas Czech and HITS gGmbH
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -23,11 +23,11 @@
 
 #include "genesis/genesis.hpp"
 
+#include <algorithm>
 #include <array>
 #include <fstream>
 #include <string>
 #include <map>
-#include <ctime>
 
 using namespace genesis;
 using namespace genesis::sequence;
@@ -50,37 +50,29 @@ int main( int argc, char** argv )
     }
 	auto const infile = std::string( argv[1] );
 
-    auto freqs = std::array<size_t, 256>{};
-    for( size_t i = 0; i < freqs.size(); ++i ) {
-        freqs[i] = 0;
+    LOG_INFO << "reading";
+    auto seqs = FastaReader().read( from_file( infile ));
+    LOG_INFO << "found " << seqs.size() << " sequences";
+
+    size_t max_len = 0;
+    for( auto const& seq : seqs ) {
+        max_len = std::max( max_len, seq.length() );
     }
+    LOG_INFO << "longest sequence is " << max_len;
+    LOG_INFO << "is algn " << ( is_alignment(seqs) ? "yes" : "no" );
 
-    LOG_INFO << "Started";
-    LOG_TIME << "now";
-    clock_t begin = clock();
-
-    auto it = FastaInputIterator( from_file( infile ));
-    size_t cnt = 0;
-    while( it ) {
-        for( auto& c : *it ) {
-            ++freqs[c];
-        }
-        ++cnt;
-        ++it;
+    for( auto& seq : seqs ) {
+        // auto prev = seq.length();
+        seq.sites() += std::string( max_len - seq.length(), '-' );
+        // LOG_DBG << prev << " >> " << seq.length() << "  " << ( max_len - seq.length() );
     }
+    LOG_INFO << "is algn " << ( is_alignment(seqs) ? "yes" : "no" );
 
-    clock_t end = clock();
-    LOG_TIME << "then";
-    LOG_INFO << "Found " << cnt << " sequences.";
+    LOG_INFO << "writing fasta";
+    FastaWriter().to_file( seqs, infile + ".aln" );
 
-    double elapsed_secs = double(end - begin) / CLOCKS_PER_SEC;
-    LOG_BOLD << "Internal time: " << elapsed_secs << "\n";
-
-    LOG_INFO << "G " << ( freqs['g'] + freqs['G'] );
-    LOG_INFO << "C " << ( freqs['c'] + freqs['C'] );
-    LOG_INFO << "A " << ( freqs['a'] + freqs['A'] );
-    LOG_INFO << "U " << ( freqs['u'] + freqs['U'] );
-    LOG_INFO << "- " << ( freqs['-'] + freqs['.'] );
+    LOG_INFO << "writing phylip";
+    PhylipWriter().to_file( seqs, infile + ".phy" );
 
     LOG_INFO << "Finished";
     return 0;
