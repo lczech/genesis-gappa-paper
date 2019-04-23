@@ -115,9 +115,13 @@ if [ $# -eq 0 ] ; then
     run_speed genesis/base_frequencies.sh
     run_speed genesis/pairwise_patristic.sh
     run_speed genesis/read_fasta.sh
+    run_speed genesis/read_jplace.sh
     run_speed genesis/read_newick.sh
     
     run_speed ggtree/read_newick.R
+    run_speed ggtree/read_jplace.sh
+    
+    run_speed guppy/read_jplace.sh
     
     run_speed libpll/read_newick.sh
     
