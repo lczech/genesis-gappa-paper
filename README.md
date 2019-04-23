@@ -9,4 +9,9 @@ Tree Test Cases:
 Sequence Test Cases:
 
  - `read_fasta`: Read in or iterate large files in Fasta format, using `SILVA_123.1_SSURef_Nr99_tax_silva.fasta`
- - `gc_content`: Calculate the character frequencies and GC content of a set of sequences, using `SILVA_123.1_SSURef_Nr99_tax_silva.fasta`
+ - `base_frequencies`: Calculate the character frequencies and GC content of a set of sequences, using `SILVA_123.1_SSURef_Nr99_tax_silva.fasta`
+ 
+Jplace Test Cases:
+
+ - `read_jplace`: Reaading in a large jplace file, using `sample_0_all_big.jplace`
+
