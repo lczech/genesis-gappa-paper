@@ -1,24 +1,23 @@
-#!/usr/bin/env Rscript 
+#!/usr/bin/env Rscript
 
 #library(tidyverse)
 library(ggtree)
 
-#jplacefile <- "/home/lucas/Projects/gappa_tests/04_samples/p1z1r2.jplace"
-#jplacefile <- "/home/lucas/Projects/gappa_tests/03_epa/chunk_0/RAxML_portableTree.chunk_0.jplace"
-jplacefile <- "../data/sample_0_all_big.jplace"
+# Get input tree file and read it (not part of this measurement)
+args <- commandArgs(trailingOnly = TRUE)
+jplacefile <- args[1]
+print(paste("reading ",jplacefile))
 
-print(jplacefile)
-
+# Start the clock
 start <- Sys.time()
-print(start) 
 
-#jpf <- system.file(jplacefile, package="ggtree")
+# Run, Forrest, Run!
 jp <- read.jplace(jplacefile)
 
+# Stop the clock
 end <- Sys.time()
-print(end) 
 duration <- difftime(end, start, units="secs")
 print(paste("Internal time:", duration))
-print(duration)
 
+# Check the output
 print(jp)
