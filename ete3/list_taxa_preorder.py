@@ -7,7 +7,7 @@ import time
 
 # Get input
 treefile=sys.argv[1]
-print "reading",treefile
+print "reading", treefile
 t = Tree( treefile )
 
 # Start the clock
@@ -21,4 +21,4 @@ with open("names.txt", "w+") as outfile:
 
 # Stop the clock
 end = time.time()
-print("Internal time: ", end - start)
+print "Internal time:", end - start

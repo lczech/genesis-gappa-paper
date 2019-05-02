@@ -7,7 +7,7 @@ import time
 
 # Get input
 treefile=sys.argv[1]
-print "reading",treefile
+print( "reading", treefile )
 
 # Start the clock
 start = time.time()
@@ -17,4 +17,4 @@ t = Tree.get( path=treefile, schema="newick" )
 
 # Stop the clock
 end = time.time()
-print("Internal time: ", end - start)
+print( "Internal time:", end - start )
