@@ -27,12 +27,12 @@ static void fatal(const char * format, ...)
 int main(int argc, char * argv[])
 {
   if (argc != 2) {
-    fatal("syntax: %s [fasta]", argv[0]);
+    fatal("syntax: %s [phylip]", argv[0]);
   }
 
   auto start = std::chrono::high_resolution_clock::now();
 
-  auto msa = pll_fasta_load(argv[1]);
+  auto msa = pll_phylip_load(argv[1], false);
 
   std::chrono::duration<double> elapsed = std::chrono::high_resolution_clock::now() - start;
   printf("Internal time: %f\n", elapsed.count());

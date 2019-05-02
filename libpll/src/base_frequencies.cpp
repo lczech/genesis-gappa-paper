@@ -1,13 +1,14 @@
 extern "C" {
 #include "pll.h"
 #include "pll_optimize.h"
-#include "pllmod_util.h"
 #include "pll_msa.h"
+#include "pllmod_util.h"
 #include "pll_binary.h"
 #include "pll_tree.h"
 }
 
 #include <stdarg.h>
+#include <stdexcept>
 #include <chrono>
 #include <vector>
 #include <string>
@@ -28,10 +29,14 @@ static void fatal(const char * format, ...)
 int main(int argc, char * argv[])
 {
   if (argc != 2) {
-    fatal("syntax: %s [fasta]", argv[0]);
+    fatal("syntax: %s [phylip]", argv[0]);
   }
 
-  auto msa = pll_phylip_load(argv[1], false);
+  auto msa = pll_phylip_load(argv[1], NULL);
+
+  if (msa == nullptr) {
+    throw std::runtime_error{std::string("pll_fasta_load failed! msg: ") + pll_errmsg};
+  }
 
   auto start = std::chrono::high_resolution_clock::now();
 
@@ -41,6 +46,10 @@ int main(int argc, char * argv[])
                                         NULL,
                                         PLLMOD_MSA_STATS_FREQS);
 
+  if (stats == nullptr) {
+    throw std::runtime_error{std::string("stats failed! msg: ") + pll_errmsg};
+  }
+
   std::chrono::duration<double> elapsed = std::chrono::high_resolution_clock::now() - start;
 
   for (size_t i = 0; i < 4; ++i) {
@@ -49,5 +58,7 @@ int main(int argc, char * argv[])
   std::cout << std::endl;
 
   printf("Internal time: %f\n", elapsed.count());
+
+  pll_msa_destroy(msa);
   return 0;
 }

@@ -3,6 +3,11 @@ cmake_minimum_required (VERSION 2.8.7 FATAL_ERROR)
 set (WARN_FLAGS               "-Wall -Wextra")
 set (CMAKE_CXX_FLAGS          "-std=c++14 ${WARN_FLAGS}")
 
+set (CMAKE_BUILD_TYPE RELEASE)
+if ( $ENV{APPS_DEBUG} )
+  set (CMAKE_BUILD_TYPE DEBUG)
+endif ()
+
 set (CMAKE_CXX_FLAGS_DEBUG    "-O0 -g -ggdb3 -DDEBUG -D_GLIBCXX_DEBUG")
 set (CMAKE_CXX_FLAGS_RELEASE  "-O3 -DNDEBUG")
 
