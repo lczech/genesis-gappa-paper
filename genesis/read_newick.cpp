@@ -28,59 +28,46 @@
 #include <unordered_map>
 #include <vector>
 #include <ctime>
+#include <chrono>
 
 using namespace genesis;
 using namespace genesis::tree;
 
 int main( int argc, char** argv )
 {
-    // Check if the command line contains the right number of arguments.
-    if (argc != 2) {
-        throw std::runtime_error(
-            "Need to provide a newick tree file.\n"
-        );
-    }
-
     using namespace std;
 
     // Activate logging.
     utils::Logging::log_to_stdout();
     utils::Logging::details.time = true;
+    utils::Options::get().number_of_threads( 4 );
     LOG_INFO << "Started " << utils::current_time();
 
+    // Get input.
+    if (argc != 2) {
+        throw std::runtime_error(
+            "Need to provide a newick tree file.\n"
+        );
+    }
     auto newick_path = std::string( argv[1] );
 
+    // Start the clock.
     LOG_TIME << "Start reading";
-    clock_t begin = clock();
+    auto start = std::chrono::steady_clock::now();
+
+    // Run, Forrest, Run!
     auto tree = CommonTreeNewickReader().read( utils::from_file( newick_path ));
+
+    // Stop the clock
+    auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(
+        std::chrono::steady_clock::now() - start
+    );
     LOG_TIME << "Finished Reading " << utils::current_time();
-    clock_t end = clock();
-    double elapsed_secs = double(end - begin) / CLOCKS_PER_SEC;
+    double elapsed_secs = double(duration.count()) / 1000.0;
     LOG_BOLD << "Internal time: " << elapsed_secs << "\n";
-    // LOG_INFO << "Finished Reading " << utils::current_time();
 
-    // LOG_DBG << "root node rank " << tree.root_node().rank();
-
-    // LOG_INFO << "Rooted:      " << ( is_rooted( tree ) ? "yes" : "no");
-    // LOG_INFO << "Bifurcating: " << ( is_bifurcating( tree ) ? "yes" : "no");
-    // LOG_INFO << "Edges:       " << tree.edge_count();
-    // LOG_INFO << "Nodes:       " << tree.node_count();
-    // LOG_INFO << "Leaves:      " << leaf_node_count( tree );
-    // LOG_INFO << "Length:      " << length( tree ) << " (sum of all branch lengths)";
-    // LOG_INFO << "Height:      " << height( tree ) << " (longest distance from root to a leaf)";
-    // LOG_INFO << "Diameter:    " << diameter( tree ) << " (longest distance between any two nodes)";
-
-    // for( auto& node : tree.nodes() ) {
-    //     auto& name = node->data<DefaultNodeData>().name;
-    //     name = utils::replace_all_chars( name, " :;()[],", '_' );
-        // auto const pos = name.find_first_of( "'" );
-        // if( pos != std::string::npos ) {
-        //     name = name.substr( 0, pos );
-        // }
-    // }
-
-    // LOG_DBG << "write";
-    // DefaultTreeNewickWriter().to_file( tree, newick_path + ".new" );
+    // Check output
+    LOG_INFO << "Leaves: " << leaf_node_count( tree );
 
     LOG_INFO << "Finished " << utils::current_time();
     return 0;

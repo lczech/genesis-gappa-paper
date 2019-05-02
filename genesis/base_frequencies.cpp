@@ -28,6 +28,7 @@
 #include <string>
 #include <map>
 #include <ctime>
+#include <chrono>
 
 using namespace genesis;
 using namespace genesis::sequence;
@@ -35,14 +36,15 @@ using namespace genesis::utils;
 
 int main( int argc, char** argv )
 {
+    using namespace std;
+
     // Activate logging.
     utils::Logging::log_to_stdout();
     utils::Logging::details.time = true;
-
     utils::Options::get().number_of_threads( 4 );
-    // LOG_BOLD << utils::Options::get().info();
-    // LOG_BOLD;
+    LOG_INFO << "Started " << utils::current_time();
 
+    // Get input.
     if (argc != 2) {
         throw std::runtime_error(
             "Need to provide a fasta file.\n"
@@ -50,27 +52,32 @@ int main( int argc, char** argv )
     }
 	auto const infile = std::string( argv[1] );
 
+    // Read input data
     LOG_INFO << "reading";
     auto seqs = FastaReader().read( from_file( infile ));
     LOG_INFO << "Found " << seqs.size() << " sequences.";
 
-    LOG_INFO << "Started";
-    LOG_TIME << "now";
-    clock_t begin = clock();
+    // Start the clock.
+    LOG_TIME << "Start reading";
+    auto start = std::chrono::steady_clock::now();
 
+    // Run, Forrest, Run!
     // auto const bf = base_frequencies( seqs, "ACGU" );
     auto bf = site_histogram( seqs );
 
-    clock_t end = clock();
-    LOG_TIME << "then";
-
-    double elapsed_secs = double(end - begin) / CLOCKS_PER_SEC;
+    // Stop the clock
+    auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(
+        std::chrono::steady_clock::now() - start
+    );
+    LOG_TIME << "Finished Reading " << utils::current_time();
+    double elapsed_secs = double(duration.count()) / 1000.0;
     LOG_BOLD << "Internal time: " << elapsed_secs << "\n";
 
+    // Check output
     LOG_INFO << "G " << ( bf['g'] + bf['G'] );
     LOG_INFO << "C " << ( bf['c'] + bf['C'] );
     LOG_INFO << "A " << ( bf['a'] + bf['A'] );
-    LOG_INFO << "U " << ( bf['u'] + bf['U'] );
+    LOG_INFO << "T " << ( bf['t'] + bf['T'] );
     LOG_INFO << "- " << ( bf['-'] + bf['.'] );
 
     LOG_INFO << "Finished";

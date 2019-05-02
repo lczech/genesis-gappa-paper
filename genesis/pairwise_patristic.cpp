@@ -28,6 +28,7 @@
 #include <unordered_map>
 #include <vector>
 #include <ctime>
+#include <chrono>
 
 using namespace genesis;
 using namespace genesis::tree;
@@ -36,44 +37,42 @@ int main( int argc, char** argv )
 {
     using namespace std;
 
-    // Check if the command line contains the right number of arguments.
+    // Activate logging.
+    utils::Logging::log_to_stdout();
+    utils::Logging::details.time = true;
+    utils::Options::get().number_of_threads( 4 );
+    LOG_INFO << "Started " << utils::current_time();
+
+    // Get input.
     if (argc != 2) {
         throw std::runtime_error(
             "Need to provide a newick tree file.\n"
         );
     }
-
-    // Activate logging and threads.
-    utils::Logging::log_to_stdout();
-    utils::Logging::details.time = true;
-    utils::Options::get().number_of_threads( 4 );
+    auto const newick_path = std::string( argv[1] );
 
     // Read in the Tree.
-    auto const newick_path = std::string( argv[1] );
     auto const tree = CommonTreeNewickReader().read( utils::from_file( newick_path ));
     LOG_INFO << "Nodes:  " << tree.node_count();
     LOG_INFO << "Leaves: " << leaf_node_count( tree );
 
     // Start the clock.
-    LOG_TIME << "Start matrix calculation " << utils::current_time();
-    clock_t const begin = clock();
+    LOG_TIME << "Start reading";
+    auto start = std::chrono::steady_clock::now();
 
     // Calculate the deed.
     auto const mat = node_branch_length_distance_matrix( tree );
 
-    // Stop the clock.
-    clock_t const end = clock();
-    double const elapsed_secs = double(end - begin) / CLOCKS_PER_SEC;
-    LOG_TIME << "End matrix calculation " << utils::current_time();
-
-    // User output.
+    // Stop the clock
+    auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(
+        std::chrono::steady_clock::now() - start
+    );
+    LOG_TIME << "Finished Reading " << utils::current_time();
+    double elapsed_secs = double(duration.count()) / 1000.0;
     LOG_BOLD << "Internal time: " << elapsed_secs << "\n";
-    LOG_INFO << "Matrix size: " << mat.rows() << " x " << mat.cols() << " = " << (mat.rows() * mat.cols());
 
-    std::ofstream outf;
-    utils::file_output_stream( "dist_mat.csv", outf );
-    outf << mat;
-    outf.close();
+    // Check output
+    LOG_INFO << "Matrix size: " << mat.rows() << " x " << mat.cols() << " = " << (mat.rows() * mat.cols());
 
     LOG_INFO << "Finished " << utils::current_time();
     return 0;
