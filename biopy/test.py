@@ -10,9 +10,9 @@ from Bio.Align import *
 from Bio import AlignIO
 from Bio.Alphabet import IUPAC, Gapped
 
-fastafile= "../data/SILVA_123.1_SSURef_Nr99_tax_silva.fasta.aln"
+fastafile=sys.argv[1]
 
-print "reading"
+print "reading", fastafile
 align = AlignIO.read(fastafile, "fasta")
 
 summary=AlignInfo.SummaryInfo(align)
@@ -20,4 +20,3 @@ print "done"
 #print summary._get_letter_freqs()
 
 info_content = summary.information_content( chars_to_ignore = ['N', '.', '-'])
-

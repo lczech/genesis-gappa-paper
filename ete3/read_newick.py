@@ -5,8 +5,16 @@ import os
 import sys
 import time
 
+# Get input
+treefile=sys.argv[1]
+print "reading",treefile
 
+# Start the clock
 start = time.time()
-t = Tree( "../data/ben_random_tree_1mio.nw" )
+
+# Run run run
+t = Tree( treefile )
+
+# Stop the clock
 end = time.time()
-print "Internal time: ", end - start
+print("Internal time: ", end - start)

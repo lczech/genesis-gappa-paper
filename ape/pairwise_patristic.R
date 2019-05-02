@@ -1,28 +1,24 @@
-#!/usr/bin/env Rscript 
+#!/usr/bin/env Rscript
 
 library(ape)
 
-# Read the tree
-treefile <- "../data/Bact_Unconstr_backbone.newick"
+# Get input tree file and read it (not part of this measurement)
+args <- commandArgs(trailingOnly = TRUE)
+treefile <- args[1]
 print(paste("reading ",treefile))
 tree <- read.tree(treefile)
 
 # Start the clock
-start <- Sys.time() 
+start <- Sys.time()
 
 # Run, Forrest, Run!
 mat <- cophenetic(tree)
 
 # Stop the clock
 end <- Sys.time()
-print(end) 
 duration <- difftime(end, start, units="secs")
 print(paste("Internal time:", duration))
 
 # Check the output
 print(dim(mat))
 #write.table( mat, "dist_mat.csv", row.names = FALSE, col.names = FALSE )
-
-#fileConn<-file("names.txt")
-#writeLines( tree$tip.label, fileConn)
-#close(fileConn)

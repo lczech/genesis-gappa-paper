@@ -1,18 +1,19 @@
-#!/usr/bin/env Rscript 
+#!/usr/bin/env Rscript
 
 library(ape)
 
-start <- Sys.time() # get start time
-#print(start) 
+# Get input tree file
+args <- commandArgs(trailingOnly = TRUE)
+treefile <- args[1]
+print(paste("reading ",treefile))
 
-#treefile <- "../data/ben_random_tree_100k.nw"
-treefile <- "../data/ben_random_tree_1mio.nw"
-#print(paste("reading ",treefile))
+# Start the clock
+start <- Sys.time()
 
-# tree <- read.tree("../data/ben_random_tree_100k.nw")
+# Run!
 tree <- read.tree(treefile)
 
+# Stop the clock
 end <- Sys.time()
-print(end) 
 duration <- difftime(end, start, units="secs")
 print(paste("Internal time:", duration))

@@ -6,12 +6,20 @@ import sys
 import time
 
 
-t = Tree.get( path="../data/ben_random_tree_1mio.nw", schema="newick" )
+# Get input
+treefile=sys.argv[1]
+print "reading",treefile
+t = Tree.get( path=treefile, schema="newick" )
 
+# Start the clock
 start = time.time()
+
+# Run run run
 with open("names.txt", "w+") as outfile:
   for node in t.preorder_node_iter():
     if node.label:
       outfile.write(node.label + "\n")
+
+# Stop the clock
 end = time.time()
-print( "Internal time: ", end - start )
+print("Internal time: ", end - start)

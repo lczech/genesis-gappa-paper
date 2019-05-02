@@ -5,9 +5,16 @@ import sys
 import time
 from Bio import SeqIO
 
+# Get data
+fastafile=sys.argv[1]
+print "reading", fastafile
+
+# Start the clock
 start = time.time()
 
-records =  list( SeqIO.parse( "../data/SILVA_123.1_SSURef_Nr99_tax_silva.fasta", "fasta" ) )
+# Run run run!
+records =  list( SeqIO.parse( fastafile, "fasta" ) )
 
+# Stop the clock
 end = time.time()
 print "Internal time: ", end - start
