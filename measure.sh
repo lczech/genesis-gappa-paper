@@ -6,7 +6,7 @@ LC_NUMERIC=C
 LC_COLLATE=C
 
 # Default number of speed runs:
-ITERATIONS=5
+ITERATIONS=2
 
 # This script needs some programs.
 if [ -z "`which bc`" ] ; then
@@ -19,6 +19,9 @@ if [ -z "`which /usr/bin/time`" ] ; then
     echo "Program '/usr/bin/time' not found. Cannot run this script."
     exit
 fi
+
+rm -f measure_time.csv
+rm -f measure_memory.csv
 
 # Run the test `ITERATIONS` times and show execution times.
 # Takes the test case as input, returns 0 if successfull.
@@ -98,12 +101,15 @@ function run_tests() {
 
         # Use `time` to get alternative measurements of exec time for consistency checks.
         usrt=`echo ${script_out} | sed "s/.*User time .seconds.: \([0-9.]*\).*/\1/g"`
-        syst=`echo ${script_out} | sed "s/.*System time .seconds.: \([0-9.]*\).*/\1/g"`
+        # syst=`echo ${script_out} | sed "s/.*System time .seconds.: \([0-9.]*\).*/\1/g"`
         wallt=`echo ${script_out} | sed "s/.*Elapsed .wall clock. time .h.mm.ss or m.ss.: \([0-9.:]*\).*/\1/g"`
-
         printf "% 10.3fs " ${usrt}
-        printf "% 10.3fs " ${syst}
+        # printf "% 10.3fs " ${syst}
         printf "% 10s \n" ${wallt}
+
+        # Print to tab files for easier post-processing
+        echo -en "\t${min}" >> "../measure_time.csv"
+        echo -en "\t${mem}" >> "../measure_memory.csv"
     else
         echo "Fail!"
     fi
@@ -117,6 +123,9 @@ function run_tests() {
 function run_fasta() {
     DATA_DIR="data/fasta"
 
+    echo -n "$1" >> "measure_time.csv"
+    echo -n "$1" >> "measure_memory.csv"
+
     run_tests $1 "${DATA_DIR}/random-alignment-1000.fasta"
     run_tests $1 "${DATA_DIR}/random-alignment-2000.fasta"
     run_tests $1 "${DATA_DIR}/random-alignment-5000.fasta"
@@ -127,10 +136,16 @@ function run_fasta() {
     run_tests $1 "${DATA_DIR}/random-alignment-200000.fasta"
     run_tests $1 "${DATA_DIR}/random-alignment-500000.fasta"
     run_tests $1 "${DATA_DIR}/random-alignment-1000000.fasta"
+
+    echo -e "\n" >> "measure_time.csv"
+    echo -e "\n" >> "measure_memory.csv"
 }
 
 function run_phylip() {
     DATA_DIR="data/phylip"
+
+    echo -n "$1" >> "measure_time.csv"
+    echo -n "$1" >> "measure_memory.csv"
 
     run_tests $1 "${DATA_DIR}/random-alignment-1000.phylip"
     run_tests $1 "${DATA_DIR}/random-alignment-2000.phylip"
@@ -142,25 +157,44 @@ function run_phylip() {
     run_tests $1 "${DATA_DIR}/random-alignment-200000.phylip"
     run_tests $1 "${DATA_DIR}/random-alignment-500000.phylip"
     run_tests $1 "${DATA_DIR}/random-alignment-1000000.phylip"
+
+    echo -e "\n" >> "measure_time.csv"
+    echo -e "\n" >> "measure_memory.csv"
 }
 
 function run_newick() {
     DATA_DIR="data/newick"
 
-    run_tests $1 "${DATA_DIR}/random-tree-1000.newick"
-    run_tests $1 "${DATA_DIR}/random-tree-2000.newick"
-    run_tests $1 "${DATA_DIR}/random-tree-5000.newick"
-    run_tests $1 "${DATA_DIR}/random-tree-10000.newick"
-    run_tests $1 "${DATA_DIR}/random-tree-20000.newick"
-    run_tests $1 "${DATA_DIR}/random-tree-50000.newick"
-    run_tests $1 "${DATA_DIR}/random-tree-100000.newick"
-    run_tests $1 "${DATA_DIR}/random-tree-200000.newick"
-    run_tests $1 "${DATA_DIR}/random-tree-500000.newick"
-    run_tests $1 "${DATA_DIR}/random-tree-1000000.newick"
+    DATASET=$1
+    PROGRAM=$2
+
+    echo -n "${PROGRAM}" >> "measure_time.csv"
+    echo -n "${PROGRAM}" >> "measure_memory.csv"
+
+    run_tests ${PROGRAM} "${DATA_DIR}/random-tree-1000.newick"
+    run_tests ${PROGRAM} "${DATA_DIR}/random-tree-2000.newick"
+    run_tests ${PROGRAM} "${DATA_DIR}/random-tree-5000.newick"
+    run_tests ${PROGRAM} "${DATA_DIR}/random-tree-10000.newick"
+
+    # Some trees are too big for certain calculations. Only run them if demanded.
+    # if [[ ${DATASET} == "all" ]]; then
+    #     run_tests ${PROGRAM} "${DATA_DIR}/random-tree-20000.newick"
+    #     run_tests ${PROGRAM} "${DATA_DIR}/random-tree-50000.newick"
+    #     run_tests ${PROGRAM} "${DATA_DIR}/random-tree-100000.newick"
+    #     run_tests ${PROGRAM} "${DATA_DIR}/random-tree-200000.newick"
+    #     run_tests ${PROGRAM} "${DATA_DIR}/random-tree-500000.newick"
+    #     run_tests ${PROGRAM} "${DATA_DIR}/random-tree-1000000.newick"
+    # fi
+
+    echo -e "\n" >> "measure_time.csv"
+    echo -e "\n" >> "measure_memory.csv"
 }
 
 function run_jplace() {
     DATA_DIR="data/jplace"
+
+    echo -n "$1" >> "measure_time.csv"
+    echo -n "$1" >> "measure_memory.csv"
 
     run_tests $1 "${DATA_DIR}/random-placements-1000.jplace"
     run_tests $1 "${DATA_DIR}/random-placements-2000.jplace"
@@ -172,45 +206,48 @@ function run_jplace() {
     run_tests $1 "${DATA_DIR}/random-placements-200000.jplace"
     run_tests $1 "${DATA_DIR}/random-placements-500000.jplace"
     run_tests $1 "${DATA_DIR}/random-placements-1000000.jplace"
+
+    echo -e "\n" >> "measure_time.csv"
+    echo -e "\n" >> "measure_memory.csv"
 }
 
 echo "Start: `date`"
 echo
-echo "Command                                 Data                                             Size         Min         Max         Avg         Mem        User         Sys        Wall "
+echo "Command                                 Data                                             Size         Min         Max         Avg         Mem        User          Wall "
 
 # Run either all know scripts, or the one provided.
 if [ $# -eq 0 ] ; then
 
     # Read Newick
-	run_newick ape/read_newick.R
-    run_newick dendropy/read_newick.py
-    run_newick ete3/read_newick.py
-    run_newick ggtree/read_newick.R
-    run_newick libpll/read_newick.sh
-    run_newick genesis/read_newick.sh
+	run_newick all ape/read_newick.R
+    run_newick all dendropy/read_newick.py
+    run_newick all ete3/read_newick.py
+    run_newick all ggtree/read_newick.R
+    run_newick all libpll/read_newick.sh
+    run_newick all genesis/read_newick
     echo
 
     # Pairwise Patristic
-    run_newick ape/pairwise_patristic.R
-    run_newick dendropy/pairwise_patristic.py
-    #run_newick ete3/pairwise_patristic.py
-    run_newick genesis/pairwise_patristic.sh
+    run_newick small ape/pairwise_patristic.R
+    run_newick small dendropy/pairwise_patristic.py
+    #run_newick small ete3/pairwise_patristic.py
+    run_newick small genesis/pairwise_patristic
     echo
 
     # Read Fasta
     run_fasta biopy/read_fasta.py
-    run_fasta genesis/read_fasta.sh
+    run_fasta genesis/read_fasta
     echo
 
     # Base Frequencies
     run_fasta biopy/base_frequencies.py
-    run_fasta genesis/base_frequencies.sh
+    run_fasta genesis/base_frequencies
     echo
 
     # Read Jplace
     run_jplace ggtree/read_jplace.R
     run_jplace guppy/read_jplace.sh
-    run_jplace genesis/read_jplace.sh
+    run_jplace genesis/read_jplace
 
 else
     run_tests ${1} ${2}
