@@ -1,6 +1,7 @@
-Tree data:
- * `Bact_Unconstr_backbone.newick`: Tree from our PhAT paper, ~2k taxa
- * `ben_random_tree_...`: generated with https://github.com/computations/tReegen
- * `ggRAND10.raxml.startTree`: 10 trees x 200k+ taxa
- * `ggRAND10.raxml.startTree_1`: Only first tree of the above
- * `Vascular_Plants_rooted.dated.tre`: 30k+ taxa
+For storage reasons, we do not keep the test files here,
+but instead provide scripts to automatically generate random input files of certain sizes.
+As we are only interested in speed measurements, random files work for us here.
+
+The scripts require [gappa](https://github.com/lczech/gappa) to be available from the directory.
+The simplest way is to create a symlink here to the gappa binary.
+Then, call `generate_data.sh` to generate random trees, alignments, and placement files.
