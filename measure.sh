@@ -223,8 +223,9 @@ if [ $# -eq 0 ] ; then
     run_newick all dendropy/read_newick.py
     run_newick all ete3/read_newick.py
     run_newick all ggtree/read_newick.R
-    run_newick all libpll/read_newick.sh
+    run_newick all libpll/read_newick
     run_newick all genesis/read_newick
+    run_newick all scikit-bio/read_newick.py
     echo
 
     # Pairwise Patristic
@@ -232,22 +233,37 @@ if [ $# -eq 0 ] ; then
     run_newick small dendropy/pairwise_patristic.py
     #run_newick small ete3/pairwise_patristic.py
     run_newick small genesis/pairwise_patristic
+    run_newick small scikit-bio/pairwise_patristic.py
     echo
 
     # Read Fasta
     run_fasta biopy/read_fasta.py
+    run_fasta libpll/read_fasta
     run_fasta genesis/read_fasta
+    run_fasta scikit-bio/read_fasta.py
+    echo
+
+    # Read Phylip
+    run_phylip biopy/read_phylip.py
+    run_phylip libpll/read_phylip
+    run_phylip genesis/read_phylip
+    run_phylip scikit-bio/read_phylip.py
     echo
 
     # Base Frequencies
-    run_fasta biopy/base_frequencies.py
+    # run_fasta biopy/base_frequencies.py
+    run_phylip libpll/base_frequencies
     run_fasta genesis/base_frequencies
+    run_fasta scikit-bio/base_frequencies.py
     echo
 
-    # Read Jplace
-    run_jplace ggtree/read_jplace.R
-    run_jplace guppy/read_jplace.sh
-    run_jplace genesis/read_jplace
+    # # Read Jplace
+    # run_jplace ggtree/read_jplace.R
+    # run_jplace guppy/read_jplace.sh
+    # run_jplace genesis/read_jplace
+    #
+    # # Run Jplace Analyses
+    # ...
 
 else
     run_tests ${1} ${2}
