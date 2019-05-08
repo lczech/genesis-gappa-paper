@@ -3,7 +3,7 @@
 #library(tidyverse)
 library(ggtree)
 
-# Get input tree file and read it (not part of this measurement)
+# Get input tree file
 args <- commandArgs(trailingOnly = TRUE)
 treefile <- args[1]
 print(paste("reading ",treefile))
