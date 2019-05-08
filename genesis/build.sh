@@ -1,14 +1,17 @@
 #!/bin/bash
 
 rm -f genesis/apps/*.cpp
-cp *.cpp genesis/apps
+cp src/*.cpp genesis/apps
 cd genesis
 make -j 4
 make update -j 4
 cd ..
 
-for c in `ls *.cpp` ; do
+for c in `ls src/*.cpp` ; do
 
-	ln -s genesis/bin/apps/${c/.cpp/} ${c/.cpp/}
+	c=${c#src/}
+	c=${c%.cpp}
+	#echo "linking $c"
+	ln -sf genesis/bin/apps/${c} ${c}
 
 done
