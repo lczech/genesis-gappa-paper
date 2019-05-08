@@ -6,7 +6,7 @@ LC_NUMERIC=C
 LC_COLLATE=C
 
 # Default number of speed runs:
-ITERATIONS=2
+ITERATIONS=5
 
 # This script needs some programs.
 if [ -z "`which bc`" ] ; then
@@ -137,8 +137,8 @@ function run_fasta() {
     run_tests $1 "${DATA_DIR}/random-alignment-500000.fasta"
     run_tests $1 "${DATA_DIR}/random-alignment-1000000.fasta"
 
-    echo -e "\n" >> "measure_time.csv"
-    echo -e "\n" >> "measure_memory.csv"
+    echo >> "measure_time.csv"
+    echo >> "measure_memory.csv"
 }
 
 function run_phylip() {
@@ -158,8 +158,8 @@ function run_phylip() {
     run_tests $1 "${DATA_DIR}/random-alignment-500000.phylip"
     run_tests $1 "${DATA_DIR}/random-alignment-1000000.phylip"
 
-    echo -e "\n" >> "measure_time.csv"
-    echo -e "\n" >> "measure_memory.csv"
+    echo >> "measure_time.csv"
+    echo >> "measure_memory.csv"
 }
 
 function run_newick() {
@@ -177,17 +177,17 @@ function run_newick() {
     run_tests ${PROGRAM} "${DATA_DIR}/random-tree-10000.newick"
 
     # Some trees are too big for certain calculations. Only run them if demanded.
-    # if [[ ${DATASET} == "all" ]]; then
-    #     run_tests ${PROGRAM} "${DATA_DIR}/random-tree-20000.newick"
-    #     run_tests ${PROGRAM} "${DATA_DIR}/random-tree-50000.newick"
-    #     run_tests ${PROGRAM} "${DATA_DIR}/random-tree-100000.newick"
-    #     run_tests ${PROGRAM} "${DATA_DIR}/random-tree-200000.newick"
-    #     run_tests ${PROGRAM} "${DATA_DIR}/random-tree-500000.newick"
-    #     run_tests ${PROGRAM} "${DATA_DIR}/random-tree-1000000.newick"
-    # fi
+    if [[ ${DATASET} == "all" ]]; then
+        run_tests ${PROGRAM} "${DATA_DIR}/random-tree-20000.newick"
+        run_tests ${PROGRAM} "${DATA_DIR}/random-tree-50000.newick"
+        run_tests ${PROGRAM} "${DATA_DIR}/random-tree-100000.newick"
+        run_tests ${PROGRAM} "${DATA_DIR}/random-tree-200000.newick"
+        run_tests ${PROGRAM} "${DATA_DIR}/random-tree-500000.newick"
+        run_tests ${PROGRAM} "${DATA_DIR}/random-tree-1000000.newick"
+    fi
 
-    echo -e "\n" >> "measure_time.csv"
-    echo -e "\n" >> "measure_memory.csv"
+    echo >> "measure_time.csv"
+    echo >> "measure_memory.csv"
 }
 
 function run_jplace() {
@@ -207,8 +207,8 @@ function run_jplace() {
     run_tests $1 "${DATA_DIR}/random-placements-500000.jplace"
     run_tests $1 "${DATA_DIR}/random-placements-1000000.jplace"
 
-    echo -e "\n" >> "measure_time.csv"
-    echo -e "\n" >> "measure_memory.csv"
+    echo >> "measure_time.csv"
+    echo >> "measure_memory.csv"
 }
 
 echo "Start: `date`"
@@ -218,51 +218,59 @@ echo "Command                                 Data                              
 # Run either all know scripts, or the one provided.
 if [ $# -eq 0 ] ; then
 
+    # Keep
+    ORIG_ITERATIONS=${ITERATIONS}
+
+    # Read Jplace
+    run_jplace genesis/read_jplace
+    run_jplace ggtree/read_jplace.R
+    run_jplace guppy/read_jplace.sh
+    echo
+
+    # Read Fasta
+    run_fasta biopython/read_fasta.py
+    run_fasta dendropy/read_fasta.py
+    run_fasta genesis/read_fasta
+    run_fasta libpll/read_fasta
+    run_fasta scikit-bio/read_fasta.py
+    echo
+
+    # Read Phylip
+    run_phylip biopython/read_phylip.py
+    run_phylip dendropy/read_phylip.py
+    run_phylip genesis/read_phylip
+    run_phylip libpll/read_phylip
+    run_phylip scikit-bio/read_phylip.py
+    echo
+
+    # Base Frequencies
+    run_fasta  biopython/base_frequencies.py
+    run_fasta  genesis/base_frequencies
+    run_phylip libpll/base_frequencies
+    run_fasta  scikit-bio/base_frequencies.py
+    echo
+
     # Read Newick
 	run_newick all ape/read_newick.R
+    run_newick all biopython/read_newick.py
     run_newick all dendropy/read_newick.py
     run_newick all ete3/read_newick.py
+    run_newick all genesis/read_newick
     run_newick all ggtree/read_newick.R
     run_newick all libpll/read_newick
-    run_newick all genesis/read_newick
     run_newick all scikit-bio/read_newick.py
     echo
 
     # Pairwise Patristic
     run_newick small ape/pairwise_patristic.R
-    run_newick small dendropy/pairwise_patristic.py
-    #run_newick small ete3/pairwise_patristic.py
     run_newick small genesis/pairwise_patristic
     run_newick small scikit-bio/pairwise_patristic.py
-    echo
+    ITERATIONS=1
+    run_newick small dendropy/pairwise_patristic.py
+    run_newick small ete3/pairwise_patristic.py
+    ITERATIONS=${ORIG_ITERATIONS}
 
-    # Read Fasta
-    run_fasta biopy/read_fasta.py
-    run_fasta libpll/read_fasta
-    run_fasta genesis/read_fasta
-    run_fasta scikit-bio/read_fasta.py
-    echo
-
-    # Read Phylip
-    run_phylip biopy/read_phylip.py
-    run_phylip libpll/read_phylip
-    run_phylip genesis/read_phylip
-    run_phylip scikit-bio/read_phylip.py
-    echo
-
-    # Base Frequencies
-    # run_fasta biopy/base_frequencies.py
-    run_phylip libpll/base_frequencies
-    run_fasta genesis/base_frequencies
-    run_fasta scikit-bio/base_frequencies.py
-    echo
-
-    # # Read Jplace
-    # run_jplace ggtree/read_jplace.R
-    # run_jplace guppy/read_jplace.sh
-    # run_jplace genesis/read_jplace
-    #
-    # # Run Jplace Analyses
+    # Run Jplace Analyses
     # ...
 
 else
