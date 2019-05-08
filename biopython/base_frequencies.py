@@ -13,6 +13,11 @@ records =  list( SeqIO.parse( fastafile, "fasta" ) )
 # Start the clock
 start = time.time()
 
+# There is a private method that seems to do what we want,
+# but unfortunately, it's private, so we cannot use it...
+#summary=AlignInfo.SummaryInfo(records)
+#print summary._get_letter_freqs()
+
 # Run run run!
 base_freqs = { "A": 0, "C": 0, "G": 0, "T": 0 }
 for rec in records:
@@ -20,9 +25,6 @@ for rec in records:
     base_freqs["C"] += sum(rec.seq.count(x) for x in ['C', 'c'])
     base_freqs["G"] += sum(rec.seq.count(x) for x in ['G', 'g'])
     base_freqs["T"] += sum(rec.seq.count(x) for x in ['T', 't', 'U', 'u'])
-
-#base_freqs = { x : sum(rec.seq.count(x) for rec in records for x in ['A', 'a', 'C', 'c', 'G', 'g', 'T', 't', 'U', 'u']) }
-#print "GC content ratio: ", (gc_count / float(nt_count)) * 100
 
 # Stop the clock
 end = time.time()
