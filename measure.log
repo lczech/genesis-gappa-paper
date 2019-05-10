@@ -1,0 +1,272 @@
+Start: Wed  8 May 23:54:49 CEST 2019
+
+Command                                 Data                                             Size         Min         Max         Avg         Mem        User          Wall
+
+biopython/read_fasta.py                 random-alignment-1000.fasta                       995Kb       0.018s      0.021s      0.019s     20.828Mb     0.110s    0:00.12
+biopython/read_fasta.py                 random-alignment-2000.fasta                       2.0Mb       0.036s      0.037s      0.036s     24.554Mb     0.130s    0:00.15
+biopython/read_fasta.py                 random-alignment-5000.fasta                       4.9Mb       0.092s      0.105s      0.096s     34.824Mb     0.200s    0:00.21
+biopython/read_fasta.py                 random-alignment-10000.fasta                      9.8Mb       0.201s      0.213s      0.206s     52.613Mb     0.320s    0:00.34
+biopython/read_fasta.py                 random-alignment-20000.fasta                       20Mb       0.418s      0.440s      0.425s     87.710Mb     0.530s    0:00.58
+biopython/read_fasta.py                 random-alignment-50000.fasta                       49Mb       1.180s      1.214s      1.196s    193.082Mb     1.340s    0:01.43
+biopython/read_fasta.py                 random-alignment-100000.fasta                      98Mb       2.551s      2.666s      2.613s    368.941Mb     2.760s    0:02.95
+biopython/read_fasta.py                 random-alignment-200000.fasta                     195Mb       5.219s      5.477s      5.308s    720.328Mb     5.630s    0:05.96
+biopython/read_fasta.py                 random-alignment-500000.fasta                     487Mb      13.219s     13.605s     13.444s   1773.992Mb    14.080s    0:14.82
+biopython/read_fasta.py                 random-alignment-1000000.fasta                    973Mb      26.337s     27.306s     26.833s   3530.925Mb    28.770s    0:30.36
+dendropy/read_fasta.py                  random-alignment-1000.fasta                       995Kb       0.756s      0.764s      0.760s     47.621Mb     0.900s    0:00.94
+dendropy/read_fasta.py                  random-alignment-2000.fasta                       2.0Mb       1.814s      1.841s      1.826s     73.398Mb     1.980s    0:02.03
+dendropy/read_fasta.py                  random-alignment-5000.fasta                       4.9Mb       6.829s      6.930s      6.883s    150.468Mb     7.020s    0:07.11
+dendropy/read_fasta.py                  random-alignment-10000.fasta                      9.8Mb      21.832s     22.506s     22.129s    278.988Mb    22.410s    0:22.59
+dendropy/read_fasta.py                  random-alignment-20000.fasta                       20Mb      76.447s     78.403s     77.478s    536.082Mb    78.410s    1:18.79
+dendropy/read_fasta.py                  random-alignment-50000.fasta                       49Mb     426.474s    443.594s    433.797s   1310.703Mb   435.030s    7:15.93
+dendropy/read_fasta.py                  random-alignment-100000.fasta                      98Mb    1645.814s   1732.759s   1695.363s   2599.292Mb  1702.610s   28:24.56
+dendropy/read_fasta.py                  random-alignment-200000.fasta                     195Mb # Aborted due to time consumption
+genesis/read_fasta                      random-alignment-1000.fasta                       995Kb       0.002s      0.005s      0.003s      7.007Mb     0.000s    0:00.00
+genesis/read_fasta                      random-alignment-2000.fasta                       2.0Mb       0.005s      0.007s      0.006s      9.246Mb     0.000s    0:00.00
+genesis/read_fasta                      random-alignment-5000.fasta                       4.9Mb       0.016s      0.019s      0.017s     14.921Mb     0.000s    0:00.02
+genesis/read_fasta                      random-alignment-10000.fasta                      9.8Mb       0.033s      0.037s      0.034s     25.476Mb     0.020s    0:00.03
+genesis/read_fasta                      random-alignment-20000.fasta                       20Mb       0.061s      0.082s      0.069s     37.945Mb     0.030s    0:00.06
+genesis/read_fasta                      random-alignment-50000.fasta                       49Mb       0.149s      0.153s      0.150s     69.191Mb     0.130s    0:00.16
+genesis/read_fasta                      random-alignment-100000.fasta                      98Mb       0.292s      0.306s      0.300s    121.484Mb     0.260s    0:00.31
+genesis/read_fasta                      random-alignment-200000.fasta                     195Mb       0.593s      0.722s      0.625s    226.074Mb     0.620s    0:00.75
+genesis/read_fasta                      random-alignment-500000.fasta                     487Mb       1.650s      1.939s      1.764s    539.820Mb     1.450s    0:01.74
+genesis/read_fasta                      random-alignment-1000000.fasta                    973Mb       3.069s      3.552s      3.270s   1062.273Mb     2.800s    0:03.20
+libpll/read_fasta                       random-alignment-1000.fasta                       995Kb       0.006s      0.007s      0.006s     10.429Mb     0.000s    0:00.00
+libpll/read_fasta                       random-alignment-2000.fasta                       2.0Mb       0.013s      0.016s      0.013s     18.410Mb     0.010s    0:00.01
+libpll/read_fasta                       random-alignment-5000.fasta                       4.9Mb       0.032s      0.039s      0.035s     41.941Mb     0.030s    0:00.04
+libpll/read_fasta                       random-alignment-10000.fasta                      9.8Mb       0.067s      0.076s      0.072s     81.312Mb     0.040s    0:00.08
+libpll/read_fasta                       random-alignment-20000.fasta                       20Mb       0.141s      0.167s      0.150s    160.046Mb     0.090s    0:00.16
+libpll/read_fasta                       random-alignment-50000.fasta                       49Mb       0.325s      0.404s      0.357s    395.707Mb     0.230s    0:00.36
+libpll/read_fasta                       random-alignment-100000.fasta                      98Mb       0.639s      0.814s      0.686s    788.601Mb     0.520s    0:00.88
+libpll/read_fasta                       random-alignment-200000.fasta                     195Mb       1.330s      1.368s      1.351s   1574.441Mb     0.910s    0:01.55
+libpll/read_fasta                       random-alignment-500000.fasta                     487Mb       3.198s      3.332s      3.256s   3931.996Mb     2.110s    0:03.66
+libpll/read_fasta                       random-alignment-1000000.fasta                    973Mb       6.638s      7.060s      6.891s   7861.125Mb     4.450s    0:07.52
+scikit-bio/read_fasta.py                random-alignment-1000.fasta                       995Kb       0.072s      0.078s      0.074s    123.058Mb     2.400s    0:02.45
+scikit-bio/read_fasta.py                random-alignment-2000.fasta                       2.0Mb       0.140s      0.147s      0.142s    124.554Mb     2.460s    0:02.47
+scikit-bio/read_fasta.py                random-alignment-5000.fasta                       4.9Mb       0.341s      0.366s      0.355s    129.113Mb     2.670s    0:02.69
+scikit-bio/read_fasta.py                random-alignment-10000.fasta                      9.8Mb       0.733s      0.774s      0.752s    136.699Mb     3.050s    0:03.11
+scikit-bio/read_fasta.py                random-alignment-20000.fasta                       20Mb       1.428s      1.477s      1.445s    152.859Mb     3.790s    0:03.79
+scikit-bio/read_fasta.py                random-alignment-50000.fasta                       49Mb       3.505s      3.634s      3.552s    202.003Mb     5.850s    0:05.95
+scikit-bio/read_fasta.py                random-alignment-100000.fasta                      98Mb       7.056s      7.136s      7.094s    282.687Mb     9.420s    0:09.57
+scikit-bio/read_fasta.py                random-alignment-200000.fasta                     195Mb      13.982s     14.771s     14.258s    444.105Mb    16.170s    0:16.50
+scikit-bio/read_fasta.py                random-alignment-500000.fasta                     487Mb      34.868s     36.114s     35.335s    931.203Mb    37.500s    0:38.16
+scikit-bio/read_fasta.py                random-alignment-1000000.fasta                    973Mb      67.336s     68.421s     68.004s   1742.140Mb    70.100s    1:11.36
+
+biopython/read_phylip.py                random-alignment-1000.phylip                      988Kb       0.024s      0.026s      0.024s     21.164Mb     0.130s    0:00.13
+biopython/read_phylip.py                random-alignment-2000.phylip                      2.0Mb       0.047s      0.053s      0.049s     24.972Mb     0.130s    0:00.15
+biopython/read_phylip.py                random-alignment-5000.phylip                      4.9Mb       0.117s      0.129s      0.121s     36.222Mb     0.230s    0:00.24
+biopython/read_phylip.py                random-alignment-10000.phylip                     9.7Mb       0.250s      0.269s      0.258s     54.625Mb     0.380s    0:00.40
+biopython/read_phylip.py                random-alignment-20000.phylip                      20Mb       0.516s      0.536s      0.522s     91.648Mb     0.640s    0:00.68
+biopython/read_phylip.py                random-alignment-50000.phylip                      49Mb       1.402s      1.456s      1.422s    202.785Mb     1.590s    0:01.67
+biopython/read_phylip.py                random-alignment-100000.phylip                     97Mb       2.967s      3.044s      3.000s    388.289Mb     3.230s    0:03.40
+biopython/read_phylip.py                random-alignment-200000.phylip                    193Mb       6.177s      6.291s      6.243s    758.726Mb     6.490s    0:06.90
+biopython/read_phylip.py                random-alignment-500000.phylip                    483Mb      15.306s     15.540s     15.424s   1870.527Mb    16.120s    0:16.89
+biopython/read_phylip.py                random-alignment-1000000.phylip                   965Mb      30.346s     31.356s     30.823s   3723.359Mb    32.190s    0:33.85
+dendropy/read_phylip.py                 random-alignment-1000.phylip                      988Kb       3.567s      3.567s      3.566s     53.636Mb     3.740s    0:03.80
+dendropy/read_phylip.py                 random-alignment-2000.phylip                      2.0Mb       7.382s      7.382s      7.381s     78.476Mb     7.550s    0:07.60
+dendropy/read_phylip.py                 random-alignment-5000.phylip                      4.9Mb      21.331s     21.331s     21.330s    159.519Mb    21.550s    0:21.62
+dendropy/read_phylip.py                 random-alignment-10000.phylip                     9.7Mb      50.369s     50.369s     50.369s    299.472Mb    50.640s    0:50.79
+dendropy/read_phylip.py                 random-alignment-20000.phylip                      20Mb     135.421s    135.421s    135.421s    572.378Mb   135.750s    2:16.12
+dendropy/read_phylip.py                 random-alignment-50000.phylip                      49Mb     578.092s    578.092s    578.091s   1400.953Mb   578.570s    9:39.57
+dendropy/read_phylip.py                 random-alignment-100000.phylip                     97Mb    2025.894s   2025.894s   2025.893s   2779.960Mb  2026.150s   33:48.70
+dendropy/read_phylip.py                 random-alignment-200000.phylip                    193Mb # Aborted due to time consumption
+genesis/read_phylip                     random-alignment-1000.phylip                      988Kb       0.015s      0.021s      0.017s      6.957Mb     0.010s    0:00.01
+genesis/read_phylip                     random-alignment-2000.phylip                      2.0Mb       0.030s      0.039s      0.034s      9.273Mb     0.030s    0:00.03
+genesis/read_phylip                     random-alignment-5000.phylip                      4.9Mb       0.076s      0.082s      0.079s     15.144Mb     0.080s    0:00.08
+genesis/read_phylip                     random-alignment-10000.phylip                     9.7Mb       0.154s      0.175s      0.161s     25.367Mb     0.140s    0:00.16
+genesis/read_phylip                     random-alignment-20000.phylip                      20Mb       0.312s      0.340s      0.321s     37.878Mb     0.300s    0:00.32
+genesis/read_phylip                     random-alignment-50000.phylip                      49Mb       0.767s      0.794s      0.773s     69.140Mb     0.750s    0:00.77
+genesis/read_phylip                     random-alignment-100000.phylip                     97Mb       1.524s      1.554s      1.537s    121.640Mb     1.460s    0:01.54
+genesis/read_phylip                     random-alignment-200000.phylip                    193Mb       3.037s      4.125s      3.688s    226.070Mb     2.980s    0:03.06
+genesis/read_phylip                     random-alignment-500000.phylip                    483Mb       7.524s      7.573s      7.554s    539.964Mb     7.460s    0:07.62
+genesis/read_phylip                     random-alignment-1000000.phylip                   965Mb      15.066s     15.148s     15.084s   1062.328Mb    14.760s    0:15.19
+libpll/read_phylip                      random-alignment-1000.phylip                      988Kb       0.003s      0.003s      0.002s      3.871Mb     0.000s    0:00.00
+libpll/read_phylip                      random-alignment-2000.phylip                      2.0Mb       0.005s      0.005s      0.005s      4.878Mb     0.000s    0:00.00
+libpll/read_phylip                      random-alignment-5000.phylip                      4.9Mb       0.012s      0.017s      0.013s      8.082Mb     0.000s    0:00.01
+libpll/read_phylip                      random-alignment-10000.phylip                     9.7Mb       0.025s      0.035s      0.028s     13.128Mb     0.030s    0:00.03
+libpll/read_phylip                      random-alignment-20000.phylip                      20Mb       0.049s      0.053s      0.051s     23.296Mb     0.040s    0:00.05
+libpll/read_phylip                      random-alignment-50000.phylip                      49Mb       0.124s      0.129s      0.126s     53.863Mb     0.080s    0:00.13
+libpll/read_phylip                      random-alignment-100000.phylip                     97Mb       0.244s      0.258s      0.249s    105.171Mb     0.200s    0:00.26
+libpll/read_phylip                      random-alignment-200000.phylip                    193Mb       0.487s      0.505s      0.495s    207.261Mb     0.400s    0:00.52
+libpll/read_phylip                      random-alignment-500000.phylip                    483Mb       1.226s      1.244s      1.231s    514.074Mb     1.010s    0:01.29
+libpll/read_phylip                      random-alignment-1000000.phylip                   965Mb       2.442s      2.468s      2.453s   1025.039Mb     2.010s    0:02.57
+scikit-bio/read_phylip.py               random-alignment-1000.phylip                      988Kb       0.042s      0.049s      0.045s    123.851Mb     2.300s    0:02.30
+scikit-bio/read_phylip.py               random-alignment-2000.phylip                      2.0Mb       0.082s      0.107s      0.088s    126.175Mb     2.290s    0:02.34
+scikit-bio/read_phylip.py               random-alignment-5000.phylip                      4.9Mb       0.203s      0.218s      0.210s    132.859Mb     2.420s    0:02.44
+scikit-bio/read_phylip.py               random-alignment-10000.phylip                     9.7Mb       0.428s      0.484s      0.459s    145.136Mb     2.680s    0:02.74
+scikit-bio/read_phylip.py               random-alignment-20000.phylip                      20Mb       0.831s      0.859s      0.850s    169.457Mb     3.130s    0:03.14
+scikit-bio/read_phylip.py               random-alignment-50000.phylip                      49Mb       2.010s      2.105s      2.066s    242.582Mb     4.290s    0:04.36
+scikit-bio/read_phylip.py               random-alignment-100000.phylip                     97Mb       4.038s      4.297s      4.131s    364.628Mb     6.300s    0:06.44
+scikit-bio/read_phylip.py               random-alignment-200000.phylip                    193Mb       8.047s      8.434s      8.208s    608.359Mb    10.550s    0:10.84
+scikit-bio/read_phylip.py               random-alignment-500000.phylip                    483Mb      20.393s     21.058s     20.633s   1340.753Mb    22.360s    0:23.06
+scikit-bio/read_phylip.py               random-alignment-1000000.phylip                   965Mb      39.608s     43.686s     41.726s   2561.000Mb    43.490s    0:44.76
+
+biopython/base_frequencies.py           random-alignment-1000.fasta                       995Kb       0.053s      0.059s      0.055s     21.117Mb     0.170s    0:00.18
+biopython/base_frequencies.py           random-alignment-2000.fasta                       2.0Mb       0.106s      0.157s      0.119s     24.636Mb     0.230s    0:00.26
+biopython/base_frequencies.py           random-alignment-5000.fasta                       4.9Mb       0.269s      0.275s      0.272s     35.171Mb     0.470s    0:00.50
+biopython/base_frequencies.py           random-alignment-10000.fasta                      9.8Mb       0.544s      0.565s      0.555s     52.699Mb     0.880s    0:00.91
+biopython/base_frequencies.py           random-alignment-20000.fasta                       20Mb       1.105s      1.123s      1.113s     87.843Mb     1.670s    0:01.72
+biopython/base_frequencies.py           random-alignment-50000.fasta                       49Mb       2.785s      2.824s      2.799s    193.218Mb     4.250s    0:04.35
+biopython/base_frequencies.py           random-alignment-100000.fasta                      98Mb       5.561s      5.631s      5.604s    369.058Mb     8.500s    0:08.68
+biopython/base_frequencies.py           random-alignment-200000.fasta                     195Mb      11.093s     14.132s     11.884s    720.449Mb    17.020s    0:17.34
+biopython/base_frequencies.py           random-alignment-500000.fasta                     487Mb      27.788s     28.217s     28.023s   1774.289Mb    42.520s    0:43.35
+biopython/base_frequencies.py           random-alignment-1000000.fasta                    973Mb      55.774s     56.003s     55.902s   3531.140Mb    84.390s    1:26.15
+genesis/base_frequencies                random-alignment-1000.fasta                       995Kb       0.000s      0.001s      0.000s      7.003Mb     0.000s    0:00.00
+genesis/base_frequencies                random-alignment-2000.fasta                       2.0Mb       0.001s      0.001s      0.001s      9.191Mb     0.000s    0:00.01
+genesis/base_frequencies                random-alignment-5000.fasta                       4.9Mb       0.003s      0.005s      0.003s     14.871Mb     0.010s    0:00.02
+genesis/base_frequencies                random-alignment-10000.fasta                      9.8Mb       0.007s      0.007s      0.007s     25.273Mb     0.030s    0:00.04
+genesis/base_frequencies                random-alignment-20000.fasta                       20Mb       0.014s      0.015s      0.014s     37.730Mb     0.060s    0:00.08
+genesis/base_frequencies                random-alignment-50000.fasta                       49Mb       0.037s      0.040s      0.037s     69.257Mb     0.170s    0:00.19
+genesis/base_frequencies                random-alignment-100000.fasta                      98Mb       0.074s      0.075s      0.074s    121.324Mb     0.370s    0:00.41
+genesis/base_frequencies                random-alignment-200000.fasta                     195Mb       0.149s      0.155s      0.151s    225.964Mb     0.660s    0:00.77
+genesis/base_frequencies                random-alignment-500000.fasta                     487Mb       0.373s      0.420s      0.389s    539.601Mb     1.790s    0:01.98
+genesis/base_frequencies                random-alignment-1000000.fasta                    973Mb       0.753s      0.766s      0.760s   1062.066Mb     3.380s    0:03.81
+libpll/base_frequencies                 random-alignment-1000.phylip                      988Kb       0.019s      0.022s      0.019s      4.605Mb     0.020s    0:00.02
+libpll/base_frequencies                 random-alignment-2000.phylip                      2.0Mb       0.038s      0.040s      0.038s      5.824Mb     0.040s    0:00.04
+libpll/base_frequencies                 random-alignment-5000.phylip                      4.9Mb       0.095s      0.105s      0.097s      8.859Mb     0.110s    0:00.11
+libpll/base_frequencies                 random-alignment-10000.phylip                     9.7Mb       0.190s      0.194s      0.191s     13.804Mb     0.210s    0:00.21
+libpll/base_frequencies                 random-alignment-20000.phylip                      20Mb       0.381s      0.390s      0.384s     23.921Mb     0.410s    0:00.44
+libpll/base_frequencies                 random-alignment-50000.phylip                      49Mb       0.960s      0.971s      0.964s     54.316Mb     1.060s    0:01.09
+libpll/base_frequencies                 random-alignment-100000.phylip                     97Mb       1.919s      1.945s      1.928s    105.593Mb     2.120s    0:02.19
+libpll/base_frequencies                 random-alignment-200000.phylip                    193Mb       3.831s      3.857s      3.847s    207.800Mb     4.250s    0:04.36
+libpll/base_frequencies                 random-alignment-500000.phylip                    483Mb       9.604s     10.125s      9.719s    514.550Mb    11.160s    0:11.44
+libpll/base_frequencies                 random-alignment-1000000.phylip                   965Mb      19.208s     19.254s     19.235s   1025.726Mb    21.250s    0:21.84
+scikit-bio/base_frequencies.py          random-alignment-1000.fasta                       995Kb       0.014s      0.026s      0.017s    123.078Mb     2.340s    0:02.36
+scikit-bio/base_frequencies.py          random-alignment-2000.fasta                       2.0Mb       0.028s      0.030s      0.028s    124.070Mb     2.440s    0:02.46
+scikit-bio/base_frequencies.py          random-alignment-5000.fasta                       4.9Mb       0.070s      0.075s      0.071s    128.882Mb     2.730s    0:02.70
+scikit-bio/base_frequencies.py          random-alignment-10000.fasta                      9.8Mb       0.145s      0.155s      0.148s    137.082Mb     3.220s    0:03.19
+scikit-bio/base_frequencies.py          random-alignment-20000.fasta                       20Mb       0.280s      0.316s      0.297s    153.460Mb     3.990s    0:03.98
+scikit-bio/base_frequencies.py          random-alignment-50000.fasta                       49Mb       0.716s      0.743s      0.725s    201.703Mb     6.500s    0:06.56
+scikit-bio/base_frequencies.py          random-alignment-100000.fasta                      98Mb       1.446s      1.482s      1.459s    282.601Mb    11.060s    0:11.19
+scikit-bio/base_frequencies.py          random-alignment-200000.fasta                     195Mb       2.861s      2.973s      2.919s    444.046Mb    19.370s    0:19.64
+scikit-bio/base_frequencies.py          random-alignment-500000.fasta                     487Mb       7.191s      7.470s      7.300s    931.523Mb    43.940s    0:44.67
+scikit-bio/base_frequencies.py          random-alignment-1000000.fasta                    973Mb      14.293s     14.848s     14.599s   1741.718Mb    86.300s    1:27.50
+
+ape/read_newick.R                       random-tree-1000.newick                            24Kb       0.004s      0.004s      0.004s     58.152Mb     0.370s    0:00.42
+ape/read_newick.R                       random-tree-2000.newick                            47Kb       0.007s      0.011s      0.008s     58.433Mb     0.420s    0:00.45
+ape/read_newick.R                       random-tree-5000.newick                           117Kb       0.017s      0.020s      0.017s     58.613Mb     0.420s    0:00.44
+ape/read_newick.R                       random-tree-10000.newick                          233Kb       0.033s      0.046s      0.037s     59.003Mb     0.400s    0:00.43
+ape/read_newick.R                       random-tree-20000.newick                          484Kb       0.105s      0.125s      0.114s     60.117Mb     0.480s    0:00.52
+ape/read_newick.R                       random-tree-50000.newick                          1.2Mb       0.203s      0.236s      0.211s     63.457Mb     0.590s    0:00.63
+ape/read_newick.R                       random-tree-100000.newick                         2.4Mb       0.387s      0.399s      0.392s     71.234Mb     0.760s    0:00.81
+ape/read_newick.R                       random-tree-200000.newick                         4.8Mb       0.834s      0.875s      0.859s     85.777Mb     1.190s    0:01.26
+ape/read_newick.R                       random-tree-500000.newick                          13Mb       2.072s      2.106s      2.091s    130.007Mb     2.420s    0:02.51
+ape/read_newick.R                       random-tree-1000000.newick                         25Mb       4.485s      4.591s      4.529s    201.605Mb     4.850s    0:04.95
+biopython/read_newick.py                random-tree-1000.newick                            24Kb       0.022s      0.023s      0.022s     20.816Mb     0.140s    0:00.16
+biopython/read_newick.py                random-tree-2000.newick                            47Kb       0.042s      0.045s      0.042s     23.570Mb     0.190s    0:00.20
+biopython/read_newick.py                random-tree-5000.newick                           117Kb       0.106s      0.129s      0.112s     31.199Mb     0.360s    0:00.38
+biopython/read_newick.py                random-tree-10000.newick                          233Kb       0.212s      0.236s      0.220s     43.460Mb     0.770s    0:00.79
+biopython/read_newick.py                random-tree-20000.newick                          484Kb       0.474s      0.494s      0.486s     68.382Mb     2.050s    0:02.09
+biopython/read_newick.py                random-tree-50000.newick                          1.2Mb       1.357s      1.425s      1.383s    142.128Mb     4.820s    0:04.88
+biopython/read_newick.py                random-tree-100000.newick                         2.4Mb  1/5         Fail!
+biopython/read_newick.py                random-tree-200000.newick                         4.8Mb  1/5         Fail!
+biopython/read_newick.py                random-tree-500000.newick                          13Mb  1/5         Fail!
+biopython/read_newick.py                random-tree-1000000.newick                         25Mb  1/5         Fail!
+dendropy/read_newick.py                 random-tree-1000.newick                            24Kb       0.092s      0.099s      0.094s     23.839Mb     0.240s    0:00.26
+dendropy/read_newick.py                 random-tree-2000.newick                            47Kb       0.185s      0.196s      0.189s     25.957Mb     0.350s    0:00.37
+dendropy/read_newick.py                 random-tree-5000.newick                           117Kb       0.473s      0.501s      0.489s     31.820Mb     0.700s    0:00.73
+dendropy/read_newick.py                 random-tree-10000.newick                          233Kb       0.982s      1.005s      0.993s     42.003Mb     1.270s    0:01.31
+dendropy/read_newick.py                 random-tree-20000.newick                          484Kb       2.119s      2.176s      2.138s     61.062Mb     2.580s    0:02.62
+dendropy/read_newick.py                 random-tree-50000.newick                          1.2Mb       5.734s      5.905s      5.809s    122.207Mb     6.770s    0:06.85
+dendropy/read_newick.py                 random-tree-100000.newick                         2.4Mb  1/5         Fail!
+dendropy/read_newick.py                 random-tree-200000.newick                         4.8Mb  1/5         Fail!
+dendropy/read_newick.py                 random-tree-500000.newick                          13Mb  1/5         Fail!
+dendropy/read_newick.py                 random-tree-1000000.newick                         25Mb  1/5         Fail!
+ete3/read_newick.py                     random-tree-1000.newick                            24Kb      0.038s      0.041s      0.039s     51.792Mb     0.330s    0:00.26
+ete3/read_newick.py                     random-tree-2000.newick                            47Kb      0.073s      0.076s      0.074s     54.875Mb     0.360s    0:00.28
+ete3/read_newick.py                     random-tree-5000.newick                           117Kb      0.200s      0.220s      0.204s     63.589Mb     0.480s    0:00.41
+ete3/read_newick.py                     random-tree-10000.newick                          233Kb      0.383s      0.402s      0.393s     78.191Mb     0.670s    0:00.64
+ete3/read_newick.py                     random-tree-20000.newick                          484Kb      0.839s      0.851s      0.844s    108.097Mb     1.190s    0:01.13
+ete3/read_newick.py                     random-tree-50000.newick                          1.2Mb      2.171s      2.244s      2.200s    196.179Mb     2.570s    0:02.56
+ete3/read_newick.py                     random-tree-100000.newick                         2.4Mb      4.764s      4.904s      4.810s    345.324Mb     5.330s    0:05.35
+ete3/read_newick.py                     random-tree-200000.newick                         4.8Mb      9.867s     10.162s     10.009s    644.019Mb    10.710s    0:10.90
+ete3/read_newick.py                     random-tree-500000.newick                          13Mb     25.680s     26.484s     25.951s   1540.804Mb    27.320s    0:27.81
+ete3/read_newick.py                     random-tree-1000000.newick                         25Mb     51.873s     55.436s     52.946s   3034.664Mb    59.020s    1:00.25
+genesis/read_newick                     random-tree-1000.newick                            24Kb      0.002s      0.004s      0.003s      6.136Mb     0.000s    0:00.00
+genesis/read_newick                     random-tree-2000.newick                            47Kb      0.005s      0.007s      0.005s      6.656Mb     0.000s    0:00.01
+genesis/read_newick                     random-tree-5000.newick                           117Kb      0.014s      0.022s      0.018s      8.445Mb     0.020s    0:00.02
+genesis/read_newick                     random-tree-10000.newick                          233Kb      0.029s      0.037s      0.032s     10.898Mb     0.040s    0:00.04
+genesis/read_newick                     random-tree-20000.newick                          484Kb      0.072s      0.088s      0.081s     17.023Mb     0.080s    0:00.11
+genesis/read_newick                     random-tree-50000.newick                          1.2Mb      0.128s      0.175s      0.147s     34.625Mb     0.150s    0:00.17
+genesis/read_newick                     random-tree-100000.newick                         2.4Mb      0.255s      0.395s      0.317s     63.542Mb     0.310s    0:00.33
+genesis/read_newick                     random-tree-200000.newick                         4.8Mb      0.526s      0.575s      0.540s    121.832Mb     0.640s    0:00.69
+genesis/read_newick                     random-tree-500000.newick                          13Mb      1.388s      1.512s      1.436s    297.136Mb     1.660s    0:01.80
+genesis/read_newick                     random-tree-1000000.newick                         25Mb      2.675s      2.838s      2.773s    576.855Mb     3.370s    0:03.60
+ggtree/read_newick.R                    random-tree-1000.newick                            24Kb      0.004s      0.004s      0.004s     73.371Mb     0.780s    0:00.81
+ggtree/read_newick.R                    random-tree-2000.newick                            47Kb      0.007s      0.008s      0.007s     73.289Mb     0.760s    0:00.81
+ggtree/read_newick.R                    random-tree-5000.newick                           117Kb      0.017s      0.019s      0.017s     73.480Mb     0.780s    0:00.82
+ggtree/read_newick.R                    random-tree-10000.newick                          233Kb      0.033s      0.040s      0.035s     74.382Mb     0.850s    0:00.90
+ggtree/read_newick.R                    random-tree-20000.newick                          484Kb      0.130s      0.148s      0.136s     75.597Mb     0.900s    0:00.93
+ggtree/read_newick.R                    random-tree-50000.newick                          1.2Mb      0.236s      0.287s      0.259s     77.515Mb     1.240s    0:01.32
+ggtree/read_newick.R                    random-tree-100000.newick                         2.4Mb      0.432s      0.661s      0.517s     84.671Mb     1.660s    0:01.77
+ggtree/read_newick.R                    random-tree-200000.newick                         4.8Mb      0.904s      0.959s      0.920s     99.511Mb     1.640s    0:01.70
+ggtree/read_newick.R                    random-tree-500000.newick                          13Mb      2.173s      2.524s      2.313s    143.578Mb     3.010s    0:03.09
+ggtree/read_newick.R                    random-tree-1000000.newick                         25Mb      4.788s      5.020s      4.887s    211.246Mb     5.460s    0:05.59
+libpll/read_newick                      random-tree-1000.newick                            24Kb      0.003s      0.003s      0.002s      3.511Mb     0.000s    0:00.00
+libpll/read_newick                      random-tree-2000.newick                            47Kb      0.006s      0.008s      0.006s      3.738Mb     0.000s    0:00.00
+libpll/read_newick                      random-tree-5000.newick                           117Kb      0.015s      0.021s      0.017s      4.566Mb     0.020s    0:00.02
+libpll/read_newick                      random-tree-10000.newick                          233Kb      0.029s      0.044s      0.035s      5.871Mb     0.040s    0:00.04
+libpll/read_newick                      random-tree-20000.newick                          484Kb      0.062s      0.076s      0.070s      8.824Mb     0.070s    0:00.07
+libpll/read_newick                      random-tree-50000.newick                          1.2Mb      0.167s      0.216s      0.196s     17.324Mb     0.220s    0:00.23
+libpll/read_newick                      random-tree-100000.newick                         2.4Mb      0.330s      0.490s      0.386s     32.031Mb     0.340s    0:00.36
+libpll/read_newick                      random-tree-200000.newick                         4.8Mb      0.629s      0.813s      0.699s     61.160Mb     0.710s    0:00.74
+libpll/read_newick                      random-tree-500000.newick                          13Mb      1.578s      2.065s      1.789s    148.308Mb     1.650s    0:01.70
+libpll/read_newick                      random-tree-1000000.newick                         25Mb      3.119s      3.233s      3.159s    293.269Mb     3.180s    0:03.30
+scikit-bio/read_newick.py               random-tree-1000.newick                            24Kb      0.043s      0.060s      0.047s    123.367Mb     2.530s    0:02.56
+scikit-bio/read_newick.py               random-tree-2000.newick                            47Kb      0.078s      0.084s      0.081s    125.445Mb     2.330s    0:02.37
+scikit-bio/read_newick.py               random-tree-5000.newick                           117Kb      0.242s      0.250s      0.244s    131.750Mb     2.560s    0:02.61
+scikit-bio/read_newick.py               random-tree-10000.newick                          233Kb      0.423s      0.434s      0.427s    141.847Mb     2.930s    0:02.93
+scikit-bio/read_newick.py               random-tree-20000.newick                          484Kb      0.966s      1.020s      0.999s    162.968Mb     3.440s    0:03.51
+scikit-bio/read_newick.py               random-tree-50000.newick                          1.2Mb      2.551s      2.682s      2.630s    226.046Mb     5.570s    0:05.61
+scikit-bio/read_newick.py               random-tree-100000.newick                         2.4Mb      5.011s      5.443s      5.154s    328.023Mb     9.410s    0:09.50
+scikit-bio/read_newick.py               random-tree-200000.newick                         4.8Mb     10.621s     12.325s     11.333s    535.171Mb    16.780s    0:17.12
+scikit-bio/read_newick.py               random-tree-500000.newick                          13Mb     26.477s     29.293s     27.686s   1157.437Mb    40.160s    0:40.82
+scikit-bio/read_newick.py               random-tree-1000000.newick                         25Mb     55.531s     58.857s     57.257s   2194.578Mb    77.820s    1:19.19
+
+ape/pairwise_patristic.R                random-tree-1000.newick                            24Kb      0.107s      0.121s      0.114s     96.429Mb     0.500s    0:00.57
+ape/pairwise_patristic.R                random-tree-2000.newick                            47Kb      0.467s      0.610s      0.505s    210.835Mb     0.840s    0:00.95
+ape/pairwise_patristic.R                random-tree-5000.newick                           117Kb      3.223s      3.969s      3.722s   1012.328Mb     3.970s    0:04.46
+ape/pairwise_patristic.R                random-tree-10000.newick                          233Kb     17.182s     21.967s     19.340s   3873.613Mb    21.050s    0:22.74
+genesis/pairwise_patristic              random-tree-1000.newick                            24Kb      0.038s      0.046s      0.040s     36.347Mb     0.030s    0:00.04
+genesis/pairwise_patristic              random-tree-2000.newick                            47Kb      0.189s      0.232s      0.202s    128.542Mb     0.140s    0:00.21
+genesis/pairwise_patristic              random-tree-5000.newick                           117Kb      1.410s      1.793s      1.492s    770.894Mb     1.150s    0:01.47
+genesis/pairwise_patristic              random-tree-10000.newick                          233Kb      7.361s      9.042s      8.120s   3062.140Mb     7.970s    0:09.24
+scikit-bio/pairwise_patristic.py        random-tree-1000.newick                            24Kb      0.505s      0.525s      0.513s    138.160Mb     2.810s    0:02.85
+scikit-bio/pairwise_patristic.py        random-tree-2000.newick                            47Kb      2.077s      2.329s      2.163s    181.460Mb     4.900s    0:05.00
+scikit-bio/pairwise_patristic.py        random-tree-5000.newick                           117Kb     13.397s     15.137s     13.769s    460.570Mb    15.830s    0:16.04
+scikit-bio/pairwise_patristic.py        random-tree-10000.newick                          233Kb     51.995s     54.595s     53.272s   1420.988Mb    54.870s    0:55.47
+dendropy/pairwise_patristic.py          random-tree-1000.newick                            24Kb       8.345s      8.345s      8.344s    270.875Mb     8.820s    0:08.98
+dendropy/pairwise_patristic.py          random-tree-2000.newick                            47Kb      37.250s     37.250s     37.249s   1015.367Mb    38.640s    0:39.18
+dendropy/pairwise_patristic.py          random-tree-5000.newick                           117Kb     248.664s    248.664s    248.663s   5754.578Mb   263.490s    4:26.63
+dendropy/pairwise_patristic.py          random-tree-10000.newick                          233Kb # Aborted due to memory consumption
+
+genesis/read_jplace                     random-placements-1000.jplace                     290Kb       0.015s      0.021s      0.017s      7.347Mb     0.020s    0:00.02
+genesis/read_jplace                     random-placements-2000.jplace                     548Kb       0.025s      0.032s      0.028s      8.148Mb     0.020s    0:00.03
+genesis/read_jplace                     random-placements-5000.jplace                     1.3Mb       0.064s      0.075s      0.068s     13.382Mb     0.060s    0:00.07
+genesis/read_jplace                     random-placements-10000.jplace                    2.6Mb       0.129s      0.179s      0.142s     21.531Mb     0.110s    0:00.14
+genesis/read_jplace                     random-placements-20000.jplace                    5.1Mb       0.263s      0.282s      0.268s     37.769Mb     0.260s    0:00.27
+genesis/read_jplace                     random-placements-50000.jplace                     13Mb       0.629s      0.673s      0.652s     72.285Mb     0.650s    0:00.68
+genesis/read_jplace                     random-placements-100000.jplace                    26Mb       1.274s      1.315s      1.284s    127.402Mb     1.260s    0:01.33
+genesis/read_jplace                     random-placements-200000.jplace                    51Mb       2.532s      2.569s      2.549s    237.308Mb     2.580s    0:02.67
+genesis/read_jplace                     random-placements-500000.jplace                   127Mb       6.064s      6.312s      6.159s    480.589Mb     6.100s    0:06.29
+genesis/read_jplace                     random-placements-1000000.jplace                  254Mb      11.911s     12.230s     12.071s    946.445Mb    11.760s    0:12.15
+ggtree/read_jplace.R                    random-placements-1000.jplace                     290Kb       0.241s      0.256s      0.248s     82.718Mb     0.990s    0:01.05
+ggtree/read_jplace.R                    random-placements-2000.jplace                     548Kb       0.369s      0.381s      0.375s     82.531Mb     1.110s    0:01.18
+ggtree/read_jplace.R                    random-placements-5000.jplace                     1.3Mb       0.730s      0.738s      0.733s     88.656Mb     1.470s    0:01.51
+ggtree/read_jplace.R                    random-placements-10000.jplace                    2.6Mb       1.428s      1.467s      1.451s    112.949Mb     2.190s    0:02.26
+ggtree/read_jplace.R                    random-placements-20000.jplace                    5.1Mb       2.628s      2.668s      2.646s    133.828Mb     3.330s    0:03.41
+ggtree/read_jplace.R                    random-placements-50000.jplace                     13Mb       6.359s      6.425s      6.384s    229.890Mb     7.110s    0:07.23
+ggtree/read_jplace.R                    random-placements-100000.jplace                    26Mb      12.431s     12.694s     12.580s    388.988Mb    13.200s    0:13.43
+ggtree/read_jplace.R                    random-placements-200000.jplace                    51Mb      24.807s     25.065s     24.918s    710.152Mb    25.420s    0:25.79
+ggtree/read_jplace.R                    random-placements-500000.jplace                   127Mb      62.853s     64.114s     63.343s   1682.500Mb    63.890s    1:04.63
+ggtree/read_jplace.R                    random-placements-1000000.jplace                  254Mb     119.961s    128.920s    123.542s   3307.191Mb   119.970s    2:01.36
+guppy/read_jplace.sh                    random-placements-1000.jplace                     290Kb       0.092s      0.102s      0.095s     12.632Mb     0.090s    0:00.10
+guppy/read_jplace.sh                    random-placements-2000.jplace                     548Kb       0.116s      0.126s      0.118s     14.843Mb     0.110s    0:00.12
+guppy/read_jplace.sh                    random-placements-5000.jplace                     1.3Mb       0.206s      0.221s      0.212s     21.644Mb     0.200s    0:00.21
+guppy/read_jplace.sh                    random-placements-10000.jplace                    2.6Mb       0.357s      0.368s      0.363s     32.457Mb     0.360s    0:00.37
+guppy/read_jplace.sh                    random-placements-20000.jplace                    5.1Mb       0.652s      0.663s      0.658s     50.914Mb     0.640s    0:00.66
+guppy/read_jplace.sh                    random-placements-50000.jplace                     13Mb       1.589s      1.600s      1.594s    106.707Mb     1.550s    0:01.59
+guppy/read_jplace.sh                    random-placements-100000.jplace                    26Mb       3.133s      3.160s      3.145s    199.066Mb     3.000s    0:03.14
+guppy/read_jplace.sh                    random-placements-200000.jplace                    51Mb       6.187s      6.289s      6.227s    378.679Mb     6.060s    0:06.20
+guppy/read_jplace.sh                    random-placements-500000.jplace                   127Mb      15.833s     15.940s     15.887s    981.421Mb    15.400s    0:15.83
+guppy/read_jplace.sh                    random-placements-1000000.jplace                  254Mb      32.205s     32.411s     32.273s   1949.980Mb    31.370s    0:32.25
+

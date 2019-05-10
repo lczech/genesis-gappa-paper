@@ -218,15 +218,6 @@ echo "Command                                 Data                              
 # Run either all know scripts, or the one provided.
 if [ $# -eq 0 ] ; then
 
-    # Keep
-    ORIG_ITERATIONS=${ITERATIONS}
-
-    # Read Jplace
-    run_jplace genesis/read_jplace
-    run_jplace ggtree/read_jplace.R
-    run_jplace guppy/read_jplace.sh
-    echo
-
     # Read Fasta
     run_fasta biopython/read_fasta.py
     run_fasta dendropy/read_fasta.py
@@ -265,13 +256,14 @@ if [ $# -eq 0 ] ; then
     run_newick small ape/pairwise_patristic.R
     run_newick small genesis/pairwise_patristic
     run_newick small scikit-bio/pairwise_patristic.py
-    ITERATIONS=1
     run_newick small dendropy/pairwise_patristic.py
-    run_newick small ete3/pairwise_patristic.py
-    ITERATIONS=${ORIG_ITERATIONS}
+    #run_newick small ete3/pairwise_patristic.py
 
-    # Run Jplace Analyses
-    # ...
+    # Read Jplace
+    run_jplace genesis/read_jplace
+    run_jplace ggtree/read_jplace.R
+    run_jplace guppy/read_jplace.sh
+    echo
 
 else
     run_tests ${1} ${2}
