@@ -1,5 +1,5 @@
 # genesis-gappa-paper
-Scripts and Tests for the Application Note
+Scripts and tests for the Application Note of our library [genesis](https://github.com/lczech/genesis) and our toolkit [gappa](https://github.com/lczech/gappa). These tests are used for evaluating runtime and memory of genesis for some typical tasks, in comparison to other bioinformatics libraries with similar functionality.
 
 ## Test Cases
 
