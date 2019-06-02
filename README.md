@@ -1,5 +1,11 @@
 # genesis-gappa-paper
-Scripts and tests for the Application Note of our library [genesis](https://github.com/lczech/genesis) and our toolkit [gappa](https://github.com/lczech/gappa). These tests are used for evaluating runtime and memory of genesis for some typical tasks, in comparison to other bioinformatics libraries with similar functionality.
+Scripts and tests for the Application Note
+
+> Genesis and Gappa: Processing, Analyzing and Visualizing Phylogenetic (Placement) Data.<br />
+> Lucas Czech, Pierre Barbera, and Alexandros Stamatakis.<br />
+> bioRxiv, 2019. https://doi.org/10.1101/647958<br />
+
+The application note presents our library [genesis](https://github.com/lczech/genesis) and our toolkit [gappa](https://github.com/lczech/gappa). The scripts and tests provided here are used for evaluating runtime and memory of genesis for some typical tasks, in comparison to other bioinformatics libraries with similar functionality.
 
 ## Test Cases
 
@@ -31,3 +37,5 @@ In order to run the tests, the following software is required:
  - [guppy 1.1.a19](http://matsen.github.io/pplacer/generated_rst/guppy.html)
  - [libpll/pll-modules 2019-04-13](https://github.com/ddarriba/pll-modules)
  - [scikit-bio 0.5.5](http://scikit-bio.org/)
+ 
+These are the tools that we compare against in the application note. See there for details.
