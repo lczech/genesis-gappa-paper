@@ -1,0 +1,77 @@
+Start: Tue  5 Nov 17:21:10 CET 2019
+
+Command                                 Data                                             Size         Min         Max         Avg         Mem        User          Wall 
+gappa/edpl.sh                           random-placements-1000.jplace                     290Kb     0.069s      0.085s      0.074s     39.738Mb     0.070s    0:00.07 
+gappa/edpl.sh                           random-placements-2000.jplace                     548Kb     0.082s      0.093s      0.087s     40.691Mb     0.070s    0:00.09 
+gappa/edpl.sh                           random-placements-5000.jplace                     1.3Mb     0.129s      0.137s      0.132s     45.054Mb     0.100s    0:00.14 
+gappa/edpl.sh                           random-placements-10000.jplace                    2.6Mb     0.198s      0.210s      0.203s     51.976Mb     0.170s    0:00.20 
+gappa/edpl.sh                           random-placements-20000.jplace                    5.1Mb     0.345s      0.359s      0.351s     65.781Mb     0.320s    0:00.35 
+gappa/edpl.sh                           random-placements-50000.jplace                     13Mb     0.791s      0.799s      0.795s     93.804Mb     0.760s    0:00.80 
+gappa/edpl.sh                           random-placements-100000.jplace                    26Mb     1.533s      1.562s      1.540s    147.429Mb     1.480s    0:01.54 
+gappa/edpl.sh                           random-placements-200000.jplace                    51Mb     3.002s      3.018s      3.011s    254.617Mb     2.920s    0:03.01 
+gappa/edpl.sh                           random-placements-500000.jplace                   127Mb     7.184s      7.219s      7.201s    551.761Mb     6.930s    0:07.19 
+gappa/edpl.sh                           random-placements-1000000.jplace                  254Mb    14.202s     14.285s     14.246s   1041.542Mb    13.820s    0:14.28 
+guppy/edpl.sh                           random-placements-1000.jplace                     290Kb     0.507s      0.521s      0.514s     96.843Mb     0.470s    0:00.51 
+guppy/edpl.sh                           random-placements-2000.jplace                     548Kb     0.536s      0.553s      0.542s     98.906Mb     0.520s    0:00.54 
+guppy/edpl.sh                           random-placements-5000.jplace                     1.3Mb     0.581s      0.617s      0.591s    105.082Mb     0.560s    0:00.59 
+guppy/edpl.sh                           random-placements-10000.jplace                    2.6Mb     0.788s      0.811s      0.797s    115.121Mb     0.750s    0:00.79 
+guppy/edpl.sh                           random-placements-20000.jplace                    5.1Mb     0.989s      1.012s      0.996s    134.308Mb     0.960s    0:00.99 
+guppy/edpl.sh                           random-placements-50000.jplace                     13Mb     1.874s      1.903s      1.888s    199.542Mb     1.820s    0:01.91 
+guppy/edpl.sh                           random-placements-100000.jplace                    26Mb     3.335s      3.362s      3.344s    294.050Mb     3.250s    0:03.35 
+guppy/edpl.sh                           random-placements-200000.jplace                    51Mb     6.273s      6.325s      6.302s    501.476Mb     6.190s    0:06.33 
+guppy/edpl.sh                           random-placements-500000.jplace                   127Mb    15.184s     15.613s     15.361s   1146.265Mb    14.750s    0:15.19 
+guppy/edpl.sh                           random-placements-1000000.jplace                  254Mb    30.416s     31.078s     30.703s   2219.214Mb    29.700s    0:30.45 
+gappa/kr.sh                             random-placements-10                              2.9Mb     0.282s      0.294s      0.284s     17.347Mb     0.270s    0:00.28 
+gappa/kr.sh                             random-placements-20                              5.8Mb     0.787s      0.820s      0.799s     25.636Mb     0.780s    0:00.80 
+gappa/kr.sh                             random-placements-50                               15Mb     3.599s      3.628s      3.615s     50.855Mb     3.580s    0:03.61 
+gappa/kr.sh                             random-placements-100                              29Mb    12.232s     12.521s     12.364s     91.949Mb    12.240s    0:12.28 
+gappa/kr.sh                             random-placements-200                              58Mb    45.584s     45.709s     45.655s    175.179Mb    45.500s    0:45.59 
+gappa/kr.sh                             random-placements-500                             143Mb   270.063s    273.856s    271.050s    425.730Mb   273.650s    4:33.86 
+gappa/kr.sh                             random-placements-1000                            286Mb  1034.537s   1045.571s   1038.378s    845.964Mb  1045.100s   17:25.58 
+gappa/kr.sh                             random-placements-2000                            572Mb  4099.440s   4183.764s   4134.975s   1697.695Mb  4122.180s    1:08:43 
+gappa/kr.sh                             random-placements-5000                            1.4Gb 25739.700s  25739.700s  25739.699s   4345.570Mb 25730.530s    7:08:59 
+gappa/kr.sh                             random-placements-10000                           2.8Gb  1/1  
+guppy/kr.sh                             random-placements-10                              2.9Mb     1.254s      1.275s      1.261s     36.304Mb     1.240s    0:01.26 
+guppy/kr.sh                             random-placements-20                              5.8Mb     3.574s      3.777s      3.638s     59.820Mb     3.620s    0:03.63 
+guppy/kr.sh                             random-placements-50                               15Mb    17.031s     26.970s     19.447s    127.179Mb    16.960s    0:17.03 
+guppy/kr.sh                             random-placements-100                              29Mb    59.661s     61.378s     60.452s    241.480Mb    61.240s    1:01.38 
+guppy/kr.sh                             random-placements-200                              58Mb   227.416s    233.409s    231.365s    471.339Mb   227.180s    3:47.42 
+guppy/kr.sh                             random-placements-500                             143Mb  1444.684s   1444.684s   1444.684s   1214.882Mb  1443.970s   24:04.69 
+guppy/kr.sh                             random-placements-1000                            286Mb  5841.371s   5841.371s   5841.371s   2526.949Mb  5838.250s    1:37:21 
+guppy/kr.sh                             random-placements-2000                            572Mb 24721.030s  24721.030s  24721.029s   5349.671Mb 24712.440s    6:52:01 
+guppy/kr.sh                             random-placements-5000                            1.4Gb  1/1  
+gappa/squash.sh                         random-placements-10                              2.9Mb     0.545s      0.585s      0.558s     18.304Mb     0.570s    0:00.59 
+gappa/squash.sh                         random-placements-20                              5.8Mb     1.827s      1.854s      1.836s     26.726Mb     1.820s    0:01.83 
+gappa/squash.sh                         random-placements-50                               15Mb    12.506s     13.294s     12.815s     51.332Mb    13.260s    0:13.30 
+gappa/squash.sh                         random-placements-100                              29Mb    57.568s     60.991s     58.549s     92.765Mb    57.960s    0:58.03 
+gappa/squash.sh                         random-placements-200                              58Mb   335.484s    338.654s    337.240s    175.906Mb   338.500s    5:38.66 
+gappa/squash.sh                         random-placements-500                             143Mb  3577.996s   3577.996s   3577.995s    425.523Mb  3577.140s   59:38.00 
+gappa/squash.sh                         random-placements-1000                            286Mb 24695.988s  24695.988s  24695.987s    843.019Mb 24693.440s    6:51:36 
+gappa/squash.sh                         random-placements-2000                            572Mb 196092.820s  196092.820s  196092.819s   1684.367Mb 175244.910s   54:28:12 
+guppy/squash.sh                         random-placements-10                              2.9Mb     3.974s      4.053s      4.023s     43.312Mb     3.940s    0:03.98 
+guppy/squash.sh                         random-placements-20                              5.8Mb    19.964s     20.335s     20.203s     77.835Mb    20.290s    0:20.34 
+guppy/squash.sh                         random-placements-50                               15Mb   233.339s    236.689s    235.383s    205.402Mb   236.510s    3:56.69 
+guppy/squash.sh                         random-placements-100                              29Mb  1540.944s   1557.672s   1552.104s    449.546Mb  1557.400s   25:57.68 
+guppy/squash.sh                         random-placements-200                              58Mb 11817.571s  12095.561s  11921.440s   1210.906Mb 12093.830s    3:21:35 
+guppy/squash.sh                         random-placements-500                             143Mb 153890.271s  153890.271s  153890.271s   4782.644Mb 153877.350s   42:44:50 
+guppy/squash.sh                         random-placements-1000                            286Mb  1/1  
+gappa/edgepca.sh                        random-placements-10                              2.9Mb    10.279s     11.493s     10.665s     29.082Mb    10.280s    0:10.29 
+gappa/edgepca.sh                        random-placements-20                              5.8Mb    10.216s     10.412s     10.307s     34.621Mb    10.290s    0:10.30 
+gappa/edgepca.sh                        random-placements-50                               15Mb    10.566s     10.947s     10.688s     74.531Mb    10.540s    0:10.57 
+gappa/edgepca.sh                        random-placements-100                              29Mb    11.110s     11.534s     11.263s    140.824Mb    11.190s    0:11.28 
+gappa/edgepca.sh                        random-placements-200                              58Mb    12.371s     12.505s     12.437s    273.753Mb    12.250s    0:12.37 
+gappa/edgepca.sh                        random-placements-500                             143Mb    17.911s     17.987s     17.941s    672.058Mb    17.630s    0:17.92 
+gappa/edgepca.sh                        random-placements-1000                            286Mb    36.918s     36.962s     36.936s   1336.160Mb    36.350s    0:36.93 
+gappa/edgepca.sh                        random-placements-2000                            572Mb    68.467s     68.467s     68.466s   2664.144Mb    67.410s    1:08.47 
+gappa/edgepca.sh                        random-placements-5000                            1.4Gb   168.280s    168.280s    168.280s   6648.320Mb   162.980s    2:48.29 
+gappa/edgepca.sh                        random-placements-10000                           2.8Gb   731.007s    731.007s    731.006s  11082.433Mb   343.480s   12:11.02 
+guppy/edgepca.sh                        random-placements-10                              2.9Mb     1.227s      1.369s      1.256s     52.414Mb     1.210s    0:01.23 
+guppy/edgepca.sh                        random-placements-20                              5.8Mb     2.145s      2.198s      2.170s     72.207Mb     2.140s    0:02.16 
+guppy/edgepca.sh                        random-placements-50                               15Mb     5.561s      5.707s      5.607s    127.363Mb     5.510s    0:05.58 
+guppy/edgepca.sh                        random-placements-100                              29Mb    11.467s     11.761s     11.669s    224.972Mb    11.610s    0:11.71 
+guppy/edgepca.sh                        random-placements-200                              58Mb    26.797s     28.108s     27.086s    402.792Mb    26.670s    0:26.88 
+guppy/edgepca.sh                        random-placements-500                             143Mb   107.939s    118.103s    113.122s    957.734Mb   114.520s    1:54.96 
+guppy/edgepca.sh                        random-placements-1000                            286Mb   382.419s    408.019s    394.520s   1861.457Mb   392.140s    6:33.13 
+guppy/edgepca.sh                        random-placements-2000                            572Mb  1483.844s   1483.844s   1483.844s   3636.414Mb  1479.610s   24:43.85 
+guppy/edgepca.sh                        random-placements-5000                            1.4Gb  9360.884s   9360.884s   9360.883s   9282.019Mb  9349.420s    2:36:00 
+guppy/edgepca.sh                        random-placements-10000                           2.8Gb  1/1  

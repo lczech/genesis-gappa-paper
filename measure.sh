@@ -242,7 +242,7 @@ if [ $# -eq 0 ] ; then
     echo
 
     # Read Newick
-	run_newick all ape/read_newick.R
+    run_newick all ape/read_newick.R
     run_newick all biopython/read_newick.py
     run_newick all dendropy/read_newick.py
     run_newick all ete3/read_newick.py
@@ -258,6 +258,7 @@ if [ $# -eq 0 ] ; then
     run_newick small scikit-bio/pairwise_patristic.py
     run_newick small dendropy/pairwise_patristic.py
     #run_newick small ete3/pairwise_patristic.py
+    echo
 
     # Read Jplace
     run_jplace genesis/read_jplace
