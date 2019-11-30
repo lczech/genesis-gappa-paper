@@ -23,12 +23,20 @@ Tree Test Cases:
 Jplace Test Cases:
 
  - `read_jplace`: Reading large jplace files
+ 
+Gappa vs Guppy Test Cases (in subdirectory `gappa`):
+
+ - `edpl`: Compute the Expected Distance between Placement Locations (EDPL)
+ - `kr`: Compute the pairwise Kantorovich-Rubinstein (KR) distance between samples
+ - `edgepca`: Compute the Edge Principal Components for a set of samples
+ - `squash`: Compute the Squash Clusternig for a set of samples
 
 ## Software
 
 In order to run the tests, the following software is required:
 
- - [genesis 0.22.1](https://github.com/lczech/genesis)
+ - [genesis 0.22.1](https://github.com/lczech/genesis/releases/tag/v0.22.1)
+ - [gappa 0.5.1](https://github.com/lczech/gappa/releases/tag/v0.5.1)
  - [ape 5.3](https://cran.r-project.org/web/packages/ape/index.html)
  - [Biopython 1.73](https://biopython.org/)
  - [DendroPy 4.4.0](https://dendropy.org/)
