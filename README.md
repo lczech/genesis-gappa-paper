@@ -3,9 +3,10 @@ Scripts and tests for the Application Note
 
 > Genesis and Gappa: Processing, Analyzing and Visualizing Phylogenetic (Placement) Data.<br />
 > Lucas Czech, Pierre Barbera, and Alexandros Stamatakis.<br />
-> bioRxiv, 2019. https://doi.org/10.1101/647958<br />
+> Bioinformatics, 2020. https://doi.org/10.1093/bioinformatics/btaa070<br />
+<!-- > bioRxiv, 2019. https://doi.org/10.1101/647958<br />-->
 
-The application note presents our library [genesis](https://github.com/lczech/genesis) and our toolkit [gappa](https://github.com/lczech/gappa). The scripts and tests provided here are used for evaluating runtime and memory of genesis for some typical tasks, in comparison to other bioinformatics libraries with similar functionality.
+The application note presents our library [genesis](https://github.com/lczech/genesis) and our toolkit [gappa](https://github.com/lczech/gappa). The scripts and tests provided here are used for evaluating runtime and memory of genesis and gappa for some typical tasks, in comparison to other bioinformatics libraries with similar functionality.
 
 ## Test Cases
 
